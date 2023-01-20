@@ -40,4 +40,5 @@ export async function createMfa(userId: string, strategy: Strategy, token: strin
 	if (resp.status !== 200) {
 		throw new Error("Refresh didn't work");
 	}
+	return resp.json();
 }

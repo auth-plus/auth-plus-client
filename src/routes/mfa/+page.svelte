@@ -1,17 +1,33 @@
 <script>
 	import { onMount } from 'svelte';
-	import { listMfa, Strategy,createMfa } from './mfa';
+	import { listMfa, Strategy, createMfa } from './mfa';
 	import { credential } from '../../stores/auth';
+	import { authenticator } from 'otplib';
+	import { toDataURL } from 'qrcode';
 
 	let mfaList = null;
 	let strategyOption = null;
+	let link = '';
+	let imgUrl = '';
 	onMount(async () => {
 		console.log($credential);
 		mfaList = await listMfa($credential.id, $credential.token);
 	});
 
 	async function createNewStrategy() {
-		await createMfa($credential.id,strategyOption, $credential.token);
+		const resp = await createMfa($credential.id, strategyOption, $credential.token);
+		if (strategyOption === Strategy.GA) {
+			const secret = resp.mfaId;
+			const otpauth = authenticator.keyuri($credential.email, 'auth-plus-client', secret);
+			link = otpauth;
+			toDataURL(otpauth, (err, imageUrl) => {
+				if (err) {
+					setImage('');
+					return;
+				}
+				imgUrl = imageUrl;
+			});
+		}
 	}
 </script>
 
@@ -42,3 +58,7 @@
 	</select>
 	<input type="submit" value="Create" />
 </form>
+
+{#if imgUrl && link}
+	<img src={imgUrl} alt="" onClick={() => window.open(link)} />
+{/if}

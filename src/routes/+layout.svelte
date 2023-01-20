@@ -4,7 +4,7 @@
 	import { onMount } from 'svelte';
 	import { credential } from '../stores/auth';
 	import Login from './login/+page.svelte';
-	
+
 	let user = null;
 	onMount(async () => {
 		const token = sessionStorage.getItem('token');
@@ -26,10 +26,10 @@
 
 <Header />
 
-
-<main>{#if $credential === null}
-	<Login />
-{:else}
-<slot />
-{/if}
+<main>
+	{#if $credential === null}
+		<Login />
+	{:else}
+		<slot />
+	{/if}
 </main>
