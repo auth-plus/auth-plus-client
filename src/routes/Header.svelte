@@ -19,14 +19,12 @@
 <nav>
 	<a href="/">Home</a>
 	<a href="/invoices" class:isDisabled={cred === null}>invoices</a>
+	<a href="/mfa" class:isDisabled={cred === null}>mfa</a>
 	<button on:click={logout} disabled={cred === null}>Logout</button>
 </nav>
 
 <style lang="scss">
 	.isDisabled {
-		color: currentColor;
-		cursor: not-allowed;
-		opacity: 0.5;
-		text-decoration: none;
+		display: none;
 	}
 </style>
