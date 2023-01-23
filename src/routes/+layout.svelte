@@ -33,3 +33,12 @@
 		<slot />
 	{/if}
 </main>
+
+<style>
+	main {
+		width: 100%;
+		padding: 5vw;
+		box-sizing: border-box;
+		font-family: Verdana, Geneva, Tahoma, sans-serif;
+	}
+</style>
