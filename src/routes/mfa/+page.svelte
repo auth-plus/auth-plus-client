@@ -1,71 +1,46 @@
-<script>
+<script lang="ts">
   import { onMount } from 'svelte'
-  import { listMfa, Strategy, createMfa } from './mfa'
-  import { credential } from '../../stores/auth'
-  import { authenticator } from 'otplib'
-  import { toDataURL } from 'qrcode'
 
-  let mfaList = null
-  let strategyOption = null
-  let link = ''
-  let imgUrl = ''
+  import { listMfa, Strategy } from './mfa'
+  import { credential } from '../../stores/auth'
+  import Card from './strategy.svelte'
+  import Modal from './modal.svelte'
+
+  const allStrategies = [Strategy.EMAIL, Strategy.PHONE, Strategy.GA]
+
+  let mfaList: Strategy[] | null = null
+
+  let strategyChoosed: Strategy | null = null
+  let secret = ''
+
   onMount(async () => {
-    console.log($credential)
+    if ($credential === null) {
+      throw new Error('Credential shoudl be setted by now')
+    }
     mfaList = await listMfa($credential.id, $credential.token)
   })
 
-  async function createNewStrategy() {
-    const resp = await createMfa(
-      $credential.id,
-      strategyOption,
-      $credential.token
-    )
-    if (strategyOption === Strategy.GA) {
-      const secret = resp.mfaId
-      const otpauth = authenticator.keyuri(
-        $credential.email,
-        'auth-plus-client',
-        secret
-      )
-      link = otpauth
-      toDataURL(otpauth, (err, imageUrl) => {
-        if (err) {
-          return
-        }
-        imgUrl = imageUrl
-      })
+  function setAction(strategy: Strategy, mfaId: string) {
+    if ($credential === null) {
+      throw new Error('Credential shoudl be setted by now')
     }
+    if (strategy === Strategy.GA) {
+      secret = mfaId
+    }
+    strategyChoosed = strategy
   }
 </script>
 
-<h1>Multi factor Authentication</h1>
-
-<h3>Your mfa</h3>
+<h2>Multi Factor Authentication</h2>
 
 {#if mfaList != null}
-  {#if mfaList.length > 0}
-    {#each mfaList as strate}
-      <li>
-        {strate}
-      </li>
-    {/each}
-  {:else}
-    <p>You have 0 mfa</p>
-  {/if}
+  {#each allStrategies as strategy}
+    <Card {strategy} isEnable={mfaList.includes(strategy)} {setAction} />
+  {/each}
 {:else}
   <p>...waiting</p>
 {/if}
 
-<form on:submit={createNewStrategy}>
-  <select name="cars" id="login-strategy" bind:value={strategyOption}>
-    <option value={null}>-</option>
-    {#each [Strategy.EMAIL, Strategy.PHONE, Strategy.GA] as strate}
-      <option value={strate}>{strate}</option>
-    {/each}
-  </select>
-  <input type="submit" value="Create" />
-</form>
-
-{#if imgUrl && link}
-  <img src={imgUrl} alt="" onClick={() => window.open(link)} />
+{#if strategyChoosed != null && $credential}
+  <Modal {secret} {strategyChoosed} email={$credential.email} />
 {/if}

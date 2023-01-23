@@ -113,9 +113,4 @@
       }
     }
   }
-  a {
-    margin-top: 1vw;
-    text-decoration: none;
-    color: steelblue;
-  }
 </style>

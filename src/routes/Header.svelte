@@ -56,7 +56,8 @@
   <ul>
     <li><a href="/">Home</a></li>
     <li class:isDisabled={cred === null}><a href="/invoices">Invoices</a></li>
-    <li class:isDisabled={cred === null}><a href="/mfa">Mfa</a></li>
+    <li class:isDisabled={cred === null}><a href="/mfa">My mfa</a></li>
+    <li class:isDisabled={cred === null}><a href="/users">Users</a></li>
   </ul>
 </nav>
 

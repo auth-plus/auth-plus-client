@@ -75,21 +75,6 @@
 </ul>
 
 <style>
-  h2 {
-    font-size: 1.5em;
-    font-weight: bolder;
-    margin: 1vw 0;
-  }
-  h3 {
-    font-size: 1.17em;
-    font-weight: bolder;
-    margin: 1vw 0;
-  }
-  h4 {
-    font-size: 1em;
-    font-weight: bolder;
-    margin: 1vw 0;
-  }
   ul {
     padding-left: 30px;
   }
