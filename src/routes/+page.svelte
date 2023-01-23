@@ -58,12 +58,6 @@
 	<li>https://onesignal.com/pricing</li>
 	<li>https://aws.amazon.com/pt/sns/pricing/</li>
 	<li>https://www.braze.com/</li>
-</ul>
-
-<h4>Billing</h4>
-<ul>
-	<li>https://recurly.com/plans/</li>
-	<li>https://www.chargebee.com/pricing/?ref=navbar</li>
 	<li>https://www.zuora.com/</li>
 </ul>
 
@@ -89,4 +83,33 @@
 	li {
 		list-style-type: disc;
 	}
+=======
+  <li>https://recurly.com/plans/</li>
+  <li>https://www.chargebee.com/pricing/?ref=navbar</li>
+  <li>https://www.zuora.com/</li>
+</ul>
+
+<style>
+  h2 {
+    font-size: 1.5em;
+    font-weight: bolder;
+    margin: 1vw 0;
+  }
+  h3 {
+    font-size: 1.17em;
+    font-weight: bolder;
+    margin: 1vw 0;
+  }
+  h4 {
+    font-size: 1em;
+    font-weight: bolder;
+    margin: 1vw 0;
+  }
+  ul {
+    padding-left: 30px;
+  }
+  li {
+    list-style-type: disc;
+  }
+>>>>>>> 9457d60 (feat: add style)
 </style>

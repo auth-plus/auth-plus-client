@@ -1,16 +1,18 @@
-<script>
-	import { credential } from '../stores/auth';
+<script lang="ts">
+  import { credential, type User } from '../stores/auth'
 
-	let cred;
+  let cred: User | null = null
 
-	async function logout() {
-		await credential.logout(cred.token);
-		sessionStorage.removeItem('token');
-	}
+  async function logout() {
+    if (cred != null) {
+      await credential.logout(cred.token)
+      sessionStorage.removeItem('token')
+    }
+  }
 
-	credential.subscribe((value) => {
-		cred = value;
-	});
+  credential.subscribe((value: User | null) => {
+    cred = value
+  })
 </script>
 
 <nav>
