@@ -1,9 +1,18 @@
 <script lang="ts">
+  import { createNewUser } from './users'
+  import { credential } from '../../stores/auth'
+
   export let toogleModal: () => void
   let name = ''
   let email = ''
   let password = ''
-  function createNew() {}
+  async function createNew() {
+    if (!$credential) {
+      throw new Error('credential should be setted')
+    }
+    await createNewUser(name, email, password, $credential.token)
+    toogleModal()
+  }
 </script>
 
 <div class="modal">

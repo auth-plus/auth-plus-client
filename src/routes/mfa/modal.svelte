@@ -34,6 +34,7 @@
       on:keypress={() => window.open(link)}
     />
   {/if}
+  {strategyChoosed}
   {#if strategyChoosed == Strategy.GA}
     <p>Please use your TOPTP Authenticator in QR above</p>
   {:else}

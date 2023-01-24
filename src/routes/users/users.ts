@@ -11,9 +11,10 @@ export async function listUser(
   const url = `http://localhost:5000/user`
   const resp = await fetch(url, config)
   if (resp.status !== 200) {
-    throw new Error("Create a new user didn't work")
+    throw new Error("List users didn't work")
   }
-  return resp.json()
+  const respJson = await resp.json()
+  return respJson.list
 }
 
 export async function createNewUser(

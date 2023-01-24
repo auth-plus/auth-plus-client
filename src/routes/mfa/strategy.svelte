@@ -7,6 +7,7 @@
   export let setAction: (strategy: Strategy, mfaId: string) => void
 
   async function createNewStrategy() {
+    console.log(strategy, isEnable)
     if (!isEnable) {
       if ($credential === null) {
         throw new Error('Credential shoudl be setted by now')

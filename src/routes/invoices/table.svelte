@@ -2,14 +2,14 @@
   import { onMount } from 'svelte/internal'
   import { credential } from '../../stores/auth'
 
-  import { listUser } from './users'
+  import { listInvoice } from './invoices'
 
-  let list: { id: string; name: string; email: string }[] = []
+  let list: { id: string; user_id: string; status: string }[] = []
   onMount(async () => {
     if (!$credential) {
       throw new Error('credential should be setted')
     }
-    list = await listUser($credential.token)
+    list = await listInvoice($credential.id)
   })
 </script>
 
@@ -17,16 +17,16 @@
   <thead>
     <tr>
       <th>ID</th>
-      <th>NAME</th>
-      <th>EMAIL</th>
+      <th>USER</th>
+      <th>STATUS</th>
     </tr>
   </thead>
   <tbody>
     {#each list as usr}
       <tr>
         <td>{usr.id}</td>
-        <td>{usr.name}</td>
-        <td>{usr.email}</td>
+        <td>{usr.user_id}</td>
+        <td>{usr.status}</td>
       </tr>
     {/each}
   </tbody>
