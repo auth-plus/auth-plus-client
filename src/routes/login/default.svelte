@@ -7,10 +7,7 @@
   let password = ''
 
   async function submit() {
-    const mfaCh = await credential.login(
-      'admin@authplus.com',
-      '7061651770d7b3ad8fa96e7a8bc61447'
-    )
+    const mfaCh = await credential.login(email, password)
     if (mfaCh != null) {
       setMfaChoose(mfaCh)
     }
@@ -112,10 +109,5 @@
         margin-left: 5px;
       }
     }
-  }
-  a {
-    margin-top: 1vw;
-    text-decoration: none;
-    color: steelblue;
   }
 </style>

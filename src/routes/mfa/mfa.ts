@@ -32,7 +32,7 @@ export async function createMfa(
   userId: string,
   strategy: Strategy,
   token: string
-): Promise<void> {
+): Promise<{ mfaId: string }> {
   const config: RequestInit = {
     method: 'POST',
     mode: 'cors',
