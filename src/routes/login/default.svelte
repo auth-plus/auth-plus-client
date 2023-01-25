@@ -10,6 +10,11 @@
     const mfaCh = await credential.login(email, password)
     if (mfaCh != null) {
       setMfaChoose(mfaCh)
+    } else {
+      if (!$credential) {
+        throw new Error('credential should be setted')
+      }
+      sessionStorage.setItem('token', $credential.token)
     }
   }
 </script>
