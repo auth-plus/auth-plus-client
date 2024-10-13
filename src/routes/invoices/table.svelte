@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { onMount } from 'svelte/internal'
+  import { onMount } from 'svelte'
   import { credential } from '../../stores/auth'
 
   import { listInvoice } from './invoices'
@@ -22,6 +22,11 @@
     </tr>
   </thead>
   <tbody>
+    <tr>
+      <td>824ebdd6-7ee9-46b7-b3f8-1ca41a39fd55</td>
+      <td>a77aa649-5cdc-4d74-a695-6d2917c32619</td>
+      <td>pending</td>
+    </tr>
     {#each list as usr}
       <tr>
         <td>{usr.id}</td>
@@ -35,19 +40,23 @@
 <style lang="scss">
   table {
     width: 90%;
-    margin: 0 auto;
+    margin: 5vmin auto;
     thead {
-      background-color: cornflowerblue;
-      color: white;
+      background-color: transparent;
+      color: rgb(49, 49, 49);
+
       tr th {
-        padding: 2vw;
+        padding: 1vw;
+        text-align: start;
+        font-weight: bolder;
       }
     }
     tbody {
       tr {
         td {
-          padding: 2vw;
-          text-align: center;
+          padding: 1vw;
+          text-align: start;
+          color: rgb(80, 80, 80);
         }
         &:nth-of-type(odd) {
           background: #eee;

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { onMount } from 'svelte/internal'
+  import { onMount } from 'svelte'
   import { credential } from '../../stores/auth'
 
   import { listUser } from './users'
@@ -16,9 +16,9 @@
 <table>
   <thead>
     <tr>
-      <th>ID</th>
-      <th>NAME</th>
-      <th>EMAIL</th>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Email</th>
     </tr>
   </thead>
   <tbody>
@@ -35,19 +35,23 @@
 <style lang="scss">
   table {
     width: 90%;
-    margin: 0 auto;
+    margin: 5vmin auto;
     thead {
-      background-color: cornflowerblue;
-      color: white;
+      background-color: transparent;
+      color: rgb(49, 49, 49);
+
       tr th {
-        padding: 2vw;
+        padding: 1vw;
+        text-align: start;
+        font-weight: bolder;
       }
     }
     tbody {
       tr {
         td {
-          padding: 2vw;
-          text-align: center;
+          padding: 1vw;
+          text-align: start;
+          color: rgb(80, 80, 80);
         }
         &:nth-of-type(odd) {
           background: #eee;

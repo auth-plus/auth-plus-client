@@ -27,17 +27,35 @@
 
 <div>
   {#if imgUrl && link}
-    <img
-      src={imgUrl}
-      alt=""
-      on:click={() => window.open(link)}
-      on:keypress={() => window.open(link)}
-    />
+    <img src={imgUrl} alt="QR code" class="qr_code" />
   {/if}
-  {strategyChoosed}
   {#if strategyChoosed == Strategy.GA}
-    <p>Please use your TOPTP Authenticator in QR above</p>
-  {:else}
-    <p>A message was sent to you, please check you email/phone</p>
+    <p>
+      Use your time-based one-time password (TOTP) authenticator app to scan the
+      QR code displayed above.
+    </p>
+  {:else if strategyChoosed == Strategy.EMAIL}
+    <p>
+      You've successfully added email as a new security factor. A verification
+      code has been sent to your registered email address. Please check your
+      inbox to proceed.
+    </p>
+  {:else if strategyChoosed == Strategy.PHONE}
+    <p>
+      We've sent a verification code to your registered phone number. Please
+      check your smartphone for the code to complete the setup.
+    </p>
   {/if}
 </div>
+
+<style lang="scss">
+  img.qr_code {
+    display: block;
+    width: 400px;
+    margin: 2vmin auto;
+  }
+  p {
+    color: green;
+    text-align: center;
+  }
+</style>

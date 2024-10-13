@@ -18,7 +18,7 @@
   }
 </script>
 
-<button on:click={createNewStrategy} class:isEnable>
+<button class={strategy} on:click={createNewStrategy} class:isEnable>
   {#if strategy === Strategy.PHONE}
     PHONE
   {:else if strategy === Strategy.EMAIL}
@@ -30,14 +30,26 @@
 
 <style lang="scss">
   button {
-    margin-right: 2vw;
-    width: 10vw;
-    height: 10vw;
+    width: 300px;
+    height: 300px;
     border-radius: 2vw;
-    border: 0.5vw rgb(185, 53, 49) solid;
-    background-color: transparent;
+    border: 1px solid rgb(105, 105, 105);
+    background-position: center;
+    background-size: cover;
+    color: rgb(0, 0, 0);
+    font-weight: 700;
+    font-size: xx-large;
     &.isEnable {
-      border: 0.5vw rgb(51, 182, 84) solid;
+      filter: grayscale(1) blur(0.5rem);
+    }
+    &.EMAIL {
+      background-image: url('email.jpg');
+    }
+    &.PHONE {
+      background-image: url('phone.jpg');
+    }
+    &.GOOGLE_AUTHENTICATOR {
+      background-image: url('clock.jpg');
     }
   }
 </style>

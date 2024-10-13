@@ -17,13 +17,24 @@
 
 <div class="modal">
   <form on:submit={createNew}>
-    <label for="login-email">Name</label>
-    <input id="login-email" bind:value={name} placeholder="enter username" />
-    <label for="login-email">Email</label>
-    <input id="login-email" bind:value={email} placeholder="enter user email" />
-    <label for="login-pw">Password</label>
+    <label for="create-user-name">Name</label>
     <input
-      id="login-pw"
+      type="text"
+      id="create-user-name"
+      bind:value={name}
+      placeholder="enter username"
+    />
+    <label for="create-user-email">Email</label>
+    <input
+      type="email"
+      id="create-user-email"
+      bind:value={email}
+      placeholder="enter user email"
+    />
+    <label for="create-user-pw">Password</label>
+    <input
+      type="password"
+      id="create-user-pw"
       bind:value={password}
       placeholder="enter user password"
     />
@@ -49,19 +60,19 @@
     position: relative;
     z-index: 200;
     width: 30%;
-    margin: 30% auto;
+    margin: 10% auto;
     box-sizing: border-box;
-    background-color: cornflowerblue;
+    background-color: transparent;
     padding: 2vw;
     border-radius: 1vw;
-    color: white;
+    color: rgb(255, 255, 255);
     label {
       display: block;
     }
     input {
-      margin: 0.5vw 0;
+      margin: 0.5vw 0 2vmin 0;
       display: block;
-      padding: 5px;
+      padding: 1vmin;
       border-radius: 3px;
       border: none;
       width: 100%;

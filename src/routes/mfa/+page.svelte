@@ -31,12 +31,20 @@
   }
 </script>
 
-<h2>Multi Factor Authentication</h2>
+<section class="description">
+  <h2>Choose a verification method. It's a good security practice.</h2>
+  <p>
+    Select a new security factor for your account. Available options include
+    email verification, SMS codes, and time-based one-time passwords (TOTP).
+  </p>
+</section>
 
 {#if mfaList != null}
-  {#each allStrategies as strategy}
-    <Card {strategy} isEnable={mfaList.includes(strategy)} {setAction} />
-  {/each}
+  <section class="method_list">
+    {#each allStrategies as strategy}
+      <Card {strategy} isEnable={mfaList.includes(strategy)} {setAction} />
+    {/each}
+  </section>
 {:else}
   <p>...waiting</p>
 {/if}
@@ -44,3 +52,17 @@
 {#if strategyChoosed != null && $credential}
   <Modal {secret} {strategyChoosed} email={$credential.email} />
 {/if}
+
+<style lang="scss">
+  section.description {
+    padding: 5vmin;
+    max-width: 60%;
+  }
+  section.method_list {
+    background-color: rgb(228, 228, 228);
+    padding: 5vmin;
+    display: flex;
+    gap: 10vmin;
+    justify-content: space-evenly;
+  }
+</style>
