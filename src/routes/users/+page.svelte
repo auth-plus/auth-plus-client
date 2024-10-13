@@ -9,8 +9,6 @@
   }
 </script>
 
-<h2>Users</h2>
-
 <button on:click={toogleModal}>+</button>
 <Table />
 
@@ -20,7 +18,7 @@
 
 <style lang="scss">
   button {
-    background-color: rgb(100, 149, 237);
+    background-color: rgb(0, 0, 0);
     color: white;
     border: none;
     border-radius: 3vmin;
@@ -32,7 +30,7 @@
     bottom: 5vw;
     right: 5vw;
     &:hover {
-      background-color: rgb(62, 122, 235);
+      background-color: rgb(105, 105, 105);
     }
   }
 </style>

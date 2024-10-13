@@ -5,26 +5,37 @@
 
   let email = ''
   let password = ''
+  let loginError = ''
 
   async function submit() {
-    const mfaCh = await credential.login(email, password)
-    if (mfaCh != null) {
-      setMfaChoose(mfaCh)
-    } else {
-      if (!$credential) {
-        throw new Error('credential should be setted')
+    try {
+      const mfaCh = await credential.login(email, password)
+      if (mfaCh != null) {
+        setMfaChoose(mfaCh)
+      } else {
+        if (!$credential) {
+          throw new Error('credential should be setted')
+        }
+        sessionStorage.setItem('token', $credential.token)
       }
-      sessionStorage.setItem('token', $credential.token)
+    } catch (error) {
+      loginError = (error as Error).message
     }
   }
 </script>
 
 <form on:submit={submit}>
   <label for="login-email">Email</label>
-  <input id="login-email" bind:value={email} placeholder="enter your email" />
+  <input
+    id="login-email"
+    bind:value={email}
+    type="email"
+    placeholder="enter your email"
+  />
   <label for="login-pw">Password</label>
   <input
     id="login-pw"
+    type="password"
     bind:value={password}
     placeholder="enter your password"
   />
@@ -58,7 +69,7 @@
         </g>
       </g>
     </svg>
-    <span>Login</span>
+    <span>Sign in and embark on a journey</span>
   </button>
   <button type="button">
     <svg
@@ -78,30 +89,52 @@
         />
       </g>
     </svg>
-    <span>Esqueci a senha</span>
+    <span
+      >My password is hiding somewhere between 'forget' and 'I'll never remember
+      this again.</span
+    >
   </button>
+  {#if loginError !== ''}
+    <span class="error">{loginError}</span>
+  {/if}
 </form>
 
 <style lang="scss">
   form {
-    width: 50%;
+    width: 30%;
     margin-left: auto;
     margin-right: auto;
     box-sizing: border-box;
-    background-color: cornflowerblue;
+    background-color: rgba(0, 0, 0, 0.3);
     padding: 2vw;
     border-radius: 1vw;
     color: white;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    gap: 1vmin;
+
     label {
       display: block;
+      font-size: larger;
     }
     input {
       margin: 0.5vw 0;
       display: block;
-      padding: 5px;
+      padding: 2vmin;
       border-radius: 3px;
       border: none;
-      width: 20vw;
+      width: 100%;
+      box-sizing: border-box;
+      background-color: rgba(255, 255, 255, 0.5);
+      &:focus {
+        background-color: white;
+      }
     }
     button {
       background-color: transparent;
@@ -110,9 +143,23 @@
       color: white;
       display: flex;
       align-items: center;
-      span {
-        margin-left: 5px;
+      justify-content: flex-start;
+      align-content: center;
+      gap: 1vmin;
+      svg {
+        min-width: 30px;
+        &:focus {
+          transform: scale(1.2);
+        }
       }
+      span {
+        text-align: start;
+      }
+    }
+    span.error {
+      color: white;
+      background-color: indianred;
+      padding: 1vmin;
     }
   }
 </style>

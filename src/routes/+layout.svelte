@@ -1,5 +1,6 @@
 <script lang="ts">
   import Header from './Header.svelte'
+  import Menu from './Menu.svelte'
 
   import { onMount } from 'svelte'
   import { credential, type User } from '../stores/auth'
@@ -24,21 +25,32 @@
   })
 </script>
 
-<Header />
 
-<main>
+<div class="main_content">
   {#if $credential === null}
+    <Header />
     <Login />
   {:else}
-    <slot />
+    <Menu/>
+    <main>
+      <slot />
+    </main>
   {/if}
-</main>
+</div>
 
-<style>
-  main {
+<style lang="scss">
+  div.main_content {
     width: 100%;
-    padding: 5vw;
+    height: 100vh;
     box-sizing: border-box;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-image: url("login_background.jpg");
+    background-color: #000;
+    display: flex;
+    flex-direction: column;
+    main {
+      background-color: white;
+      flex-grow: 1;
+    }
   }
 </style>

@@ -15,18 +15,26 @@
   }
 </script>
 
-{#if mfaChoose == null && mfaCodeHash == null}
-  <Default {setMfaChoose} />
-{/if}
+<div class="login_content">
+  {#if mfaChoose == null && mfaCodeHash == null}
+    <Default {setMfaChoose} />
+  {/if}
+  
+  {#if mfaChoose != null && mfaCodeHash == null}
+    <Choose
+      hash={mfaChoose.hash}
+      list={mfaChoose.strategyList}
+      {setMfaCodeHash}
+    />
+  {/if}
+  
+  {#if mfaCodeHash != null}
+    <Code hash={mfaCodeHash} />
+  {/if}
+</div>
 
-{#if mfaChoose != null && mfaCodeHash == null}
-  <Choose
-    hash={mfaChoose.hash}
-    list={mfaChoose.strategyList}
-    {setMfaCodeHash}
-  />
-{/if}
-
-{#if mfaCodeHash != null}
-  <Code hash={mfaCodeHash} />
-{/if}
+<style lang="scss">
+  div.login_content {
+    flex-grow: 1;
+  }
+</style>

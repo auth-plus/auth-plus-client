@@ -1,84 +1,290 @@
-<h2>HOME</h2>
-<p>
-  This project below is still in progress but already has a lot of my knowledge
-  and experience. Since, each of those systems is quitely big, I just put the
-  link. Each one of them has a detailed description. This project should
-  simulate a real organization as a Startup! All those projects must challenge
-  me in a way: language, concepts, or tools.
-</p>
+<div>
+  <section class="intro">
+    <h2>The best benefit-cost authentication system around the block</h2>
+    <p>
+      Need a hassle-free authentication system with multi-factor authentication
+      (MFA)? Tired of the high costs of popular services? Introducing Auth+, a
+      flexible solution that lets you create and manage your teams effortlessly.
+      Say goodbye to the dilemma of building from scratch or breaking the bank.
+      Our platform offers a balance between customization and affordability.
+      Auth+ has small startup as a target, offering all kind of system at low
+      cost, but also offering support to customize. Monetizing for each system
+      that the client wants to subscribe
+    </p>
+  </section>
 
-<h3>Pitch Deck</h3>
-<p>
-  A lot of startups have a dilemma: should I create from zero or should I pay to
-  use? The trade-off is simple,
-</p>
-<ul>
-  <li>
-    Cons of Creating a new one
+  <section class="services">
+    <h3>Services</h3>
+    <div class="card_list">
+      <div class="card_item auth">
+        <div class="hide">
+          <h4>Authentication</h4>
+          <ul>
+            <li>Typescript</li>
+            <li>Express</li>
+            <li>winston</li>
+            <li>Knex</li>
+            <li>Mocha</li>
+            <li>ts-mockito</li>
+            <li>casual</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card_item notification">
+        <div class="hide">
+          <h4>Notification</h4>
+          <ul>
+            <li>Go</li>
+            <li>Gin</li>
+            <li>Zap</li>
+            <li>Testify</li>
+            <li>Gock</li>
+            <li>Faker</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card_item billing">
+        <div class="hide">
+          <h4>Billing</h4>
+          <ul>
+            <li>Rust</li>
+            <li>Actix</li>
+            <li>sqlx</li>
+            <li>Mockall</li>
+            <li>Fake</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card_item client">
+        <div class="hide">
+          <h4>Client</h4>
+          <ul>
+            <li>Typescript</li>
+            <li>Svelte</li>
+            <li>Vite</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card_item symphony">
+        <div class="hide">
+          <h4>Symphony</h4>
+          <ul>
+            <li>Pulumi</li>
+            <li>Prometheus</li>
+            <li>Zipkin</li>
+            <li>ELK</li>
+            <li>Kafka</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="competitors">
+    <h2>Evaluating Auth+ Against Competitors: A Comprehensive Guide</h2>
+    <p>
+      Before diving into comparisons, it's essential to grasp Auth+'s core
+      features and unique selling points. What sets it apart from other
+      authentication services? Developing an application requires integrating
+      various functionalities. This text helps navigate some key services with
+      their major competitors:
+    </p>
+
+    <h4>Authentication</h4>
+    <p>
+      This service verifies user identities and controls access to your
+      application. Here's a look at some popular options:
+    </p>
     <ul>
-      <li>time to waste</li>
-      <li>the human effort to code</li>
-      <li>the risk of making incorrect/mistakes</li>
-      <li>maintenance after done</li>
+      <li>AuthRocket: https://authrocket.com/plans</li>
+      <li>Auth0 https://auth0.com/pricing</li>
+      <li>OneLogin: https://www.onelogin.com</li>
+      <li>AWS Cognito: https://aws.amazon.com/pt/cognito/pricing</li>
     </ul>
-  </li>
-  <li>
-    Cons of integration
+
+    <h4>Notification</h4>
+    <p>
+      This service keeps users informed through messages like emails, push
+      notifications, or in-app alerts. Explore these options:
+    </p>
     <ul>
-      <li>a high cost</li>
-      <li>the effort to integrate</li>
-      <li>a high cost to customize if necessary</li>
+      <li>SendGrid: https://sendgrid.com/pricing</li>
+      <li>Mailchimp: https://mailchimp.com/pt-br/pricing/marketing</li>
+      <li>OneSignal: https://onesignal.com/pricing</li>
+      <li>Amazon SNS: https://aws.amazon.com/pt/sns/pricing</li>
+      <li>Braze: https://www.braze.com</li>
+      <li>
+        Zuora:
+        https://www.zuora.com/products/billing-software/pricing-and-packaging/
+      </li>
     </ul>
-  </li>
-</ul>
-<p>
-  Auth+ has small startup as a target, offering all kind of system at low cost,
-  but also offering support to customize. Monetizing for each system that the
-  client wants to subscribe
-</p>
+    <h4>Billing</h4>
+    <p>
+      This service manages subscriptions, recurring payments, and invoicing.
+      Consider these options:
+    </p>
+    <ul>
+      <li>Recurly: https://recurly.com/plans</li>
+      <li>Chargebee: https://www.chargebee.com/pricing/?ref=navbar</li>
+      <li>
+        Zuora:
+        https://www.zuora.com/products/billing-software/pricing-and-packaging/
+      </li>
+    </ul>
+  </section>
 
-<h3>Repositories</h3>
-<ul>
-  <li>
-    Authentication (Typescript/Express/winston/Knex/Mocha/ts-mockito/casual)
-  </li>
-  <li>Notification (Go/Gin/Zap/Testify/Gock/Faker)</li>
-  <li>Billing (Rust/Actix/sqlx/Mockall/Fake)</li>
-  <li>Client (Typescript/Svelte/Vite)</li>
-  <li>Infra (Pulumi) Symphony (Prometheus/Zipkin/ELK/Kafka)</li>
-</ul>
+  <section class="author">
+    <h2>Author's Reflection</h2>
+    <p>
+      This ongoing project showcases a significant amount of my skills and
+      expertise. Due to the complexity of each system, I've provided links for
+      detailed descriptions. To simulate a real-world startup environment, these
+      projects have been designed to challenge me in areas such as programming
+      languages, technical concepts, and tools.
+    </p>
+  </section>
+</div>
 
-<h3>Competitors</h3>
-<h4>Authentication</h4>
-<ul>
-  <li>https://authrocket.com/plans</li>
-  <li>https://auth0.com/pricing</li>
-  <li>https://www.onelogin.com/</li>
-  <li>https://aws.amazon.com/pt/cognito/pricing/</li>
-</ul>
+<style lang="scss">
+  div {
+    width: 100%;
 
-<h4>Notification</h4>
-<ul>
-  <li>https://sendgrid.com/pricing</li>
-  <li>https://mailchimp.com/pt-br/pricing/marketing/</li>
-  <li>https://onesignal.com/pricing</li>
-  <li>https://aws.amazon.com/pt/sns/pricing/</li>
-  <li>https://www.braze.com/</li>
-  <li>https://www.zuora.com/</li>
-</ul>
+    section.intro {
+      padding: 5vmin;
+      max-width: 60%;
+    }
 
-<h4>Billing</h4>
-<ul>
-  <li>https://recurly.com/plans/</li>
-  <li>https://www.chargebee.com/pricing/?ref=navbar</li>
-  <li>https://www.zuora.com/</li>
-</ul>
+    section.services {
+      background-color: rgb(231, 231, 231);
+      padding: 3vmin;
+    }
+    div.card_list {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-items: center;
+      align-content: center;
+      flex-grow: 1;
+      width: 100%;
+      gap: 50px;
+      width: 100%;
+      overflow-x: auto;
+      div.card_item {
+        list-style-type: none;
+        background-repeat: repeat;
+        background-size: cover;
+        background-position: center;
+        height: 650px;
+        min-width: 400px;
+        min-height: 100%;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
 
-<style>
-  ul {
-    padding-left: 30px;
-  }
-  li {
-    list-style-type: disc;
+        div.hide {
+          visibility: hidden;
+
+          ul {
+            color: rgb(63, 63, 63);
+            li {
+              color: white;
+              list-style-type: none;
+            }
+          }
+        }
+        &:hover .hide {
+          visibility: visible;
+        }
+
+        &.auth {
+          background-image: url('auth.jpg');
+          &:hover {
+            background: linear-gradient(
+                rgba(255, 255, 255, 0.8),
+                rgba(0, 0, 0, 0.8)
+              ),
+              url('auth.jpg');
+            background-size: cover;
+            background-position: center;
+          }
+        }
+        &.notification {
+          background-image: url('notification.jpg');
+          &:hover {
+            background: linear-gradient(
+                rgba(255, 255, 255, 0.8),
+                rgba(0, 0, 0, 0.8)
+              ),
+              url('notification.jpg');
+            background-size: cover;
+            background-position: center;
+          }
+        }
+        &.billing {
+          background-image: url('billing.jpg');
+          &:hover {
+            background: linear-gradient(
+                rgba(255, 255, 255, 0.8),
+                rgba(0, 0, 0, 0.8)
+              ),
+              url('billing.jpg');
+            background-size: cover;
+            background-position: center;
+          }
+        }
+        &.client {
+          background-image: url('client.jpg');
+          &:hover {
+            background: linear-gradient(
+                rgba(255, 255, 255, 0.8),
+                rgba(0, 0, 0, 0.8)
+              ),
+              url('client.jpg');
+            background-size: cover;
+            background-position: center;
+          }
+        }
+        &.symphony {
+          background-image: url('symphony.jpg');
+          &:hover {
+            background: linear-gradient(
+                rgba(255, 255, 255, 0.8),
+                rgba(0, 0, 0, 0.8)
+              ),
+              url('symphony.jpg');
+            background-size: cover;
+            background-position: center;
+          }
+        }
+      }
+    }
+
+    section.competitors {
+      padding: 5vmin;
+      max-width: 60%;
+      ul {
+        width: 50%;
+        margin: 0 0 40px 0;
+        li {
+          margin: 1vmin 0;
+          padding: 2vmin;
+          background-color: rgb(245, 245, 245);
+          box-shadow: 5px 5px 7px rgba(33, 33, 33, 0.7);
+          transition: all 0.5s;
+          &:hover {
+            box-shadow: 0 0 7px rgba(33, 33, 33, 0.7);
+          }
+        }
+      }
+    }
+
+    section.author {
+      padding: 5vmin;
+      width: 100%;
+      background-color: rgb(88, 88, 88);
+      color: white;
+    }
   }
 </style>
