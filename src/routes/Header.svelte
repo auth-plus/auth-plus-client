@@ -1,23 +1,4 @@
-<script lang="ts">
-  import { credential, type User } from '../stores/auth'
-
-  let cred: User | null = null
-
-  async function logout() {
-    if (cred != null) {
-      await credential.logout(cred.token)
-      sessionStorage.removeItem('token')
-    }
-  }
-
-  credential.subscribe((value: User | null) => {
-    cred = value
-  })
-</script>
-
-<nav>
-  Auth +
-</nav>
+<nav>Auth +</nav>
 
 <style lang="scss">
   nav {

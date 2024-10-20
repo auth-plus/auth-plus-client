@@ -1,7 +1,5 @@
 **Proposal**
 
--
-
-**Links**
+- **Links**
 
 -

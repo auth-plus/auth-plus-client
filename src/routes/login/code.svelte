@@ -35,8 +35,7 @@
     display: flex;
     flex-direction: column;
     gap: 1vmin;
-    input,
-    select {
+    input {
       margin: 0.5vw 0;
       display: block;
       padding: 1vmin;
