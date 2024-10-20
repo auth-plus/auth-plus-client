@@ -18,9 +18,9 @@
 <nav>
   <ul>
     <li><a href="/">HOME</a></li>
-    <li class:isDisabled={cred === null}><a href="/invoices">INVOICES</a></li>
-    <li class:isDisabled={cred === null}><a href="/mfa">MFA</a></li>
-    <li class:isDisabled={cred === null}><a href="/users">USERS</a></li>
+    <li><a href="/invoices">INVOICES</a></li>
+    <li><a href="/mfa">MFA</a></li>
+    <li><a href="/users">USERS</a></li>
   </ul>
   <div class="user">
     <button on:click={logout} class:isDisabled={cred == null}>
@@ -106,8 +106,5 @@
         cursor: pointer;
       }
     }
-  }
-  .isDisabled {
-    display: none;
   }
 </style>

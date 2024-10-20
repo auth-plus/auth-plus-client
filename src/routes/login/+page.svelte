@@ -19,7 +19,7 @@
   {#if mfaChoose == null && mfaCodeHash == null}
     <Default {setMfaChoose} />
   {/if}
-  
+
   {#if mfaChoose != null && mfaCodeHash == null}
     <Choose
       hash={mfaChoose.hash}
@@ -27,7 +27,7 @@
       {setMfaCodeHash}
     />
   {/if}
-  
+
   {#if mfaCodeHash != null}
     <Code hash={mfaCodeHash} />
   {/if}

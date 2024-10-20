@@ -2,13 +2,22 @@
   import { credential } from '../../stores/auth'
 
   import { Strategy, createMfa } from './mfa'
+  import imageEmailUrl from '$lib/email.jpg'
+  import imagePhoneUrl from '$lib/phone.jpg'
+  import imageClockUrl from '$lib/clock.jpg'
+
   export let strategy: Strategy
-  export let isEnable: boolean
+  export let alreadySetup: boolean
   export let setAction: (strategy: Strategy, mfaId: string) => void
 
+  function getImage() {
+    if (strategy === Strategy.PHONE) return imagePhoneUrl
+    if (strategy === Strategy.EMAIL) return imageEmailUrl
+    if (strategy === Strategy.GA) return imageClockUrl
+  }
   async function createNewStrategy() {
-    console.log(strategy, isEnable)
-    if (!isEnable) {
+    console.log(strategy, alreadySetup)
+    if (!alreadySetup) {
       if ($credential === null) {
         throw new Error('Credential shoudl be setted by now')
       }
@@ -18,7 +27,11 @@
   }
 </script>
 
-<button class={strategy} on:click={createNewStrategy} class:isEnable>
+<button
+  on:click={createNewStrategy}
+  class:alreadySetup
+  style="background-image: url({getImage()})"
+>
   {#if strategy === Strategy.PHONE}
     PHONE
   {:else if strategy === Strategy.EMAIL}
@@ -39,17 +52,10 @@
     color: rgb(0, 0, 0);
     font-weight: 700;
     font-size: xx-large;
-    &.isEnable {
+    cursor: pointer;
+    &.alreadySetup {
+      cursor: not-allowed;
       filter: grayscale(1) blur(0.5rem);
-    }
-    &.EMAIL {
-      background-image: url('email.jpg');
-    }
-    &.PHONE {
-      background-image: url('phone.jpg');
-    }
-    &.GOOGLE_AUTHENTICATOR {
-      background-image: url('clock.jpg');
     }
   }
 </style>

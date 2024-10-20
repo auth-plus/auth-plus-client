@@ -3,10 +3,10 @@
   import Menu from './Menu.svelte'
 
   import { onMount } from 'svelte'
-  import { credential, type User } from '../stores/auth'
+  import { credential } from '../stores/auth'
   import Login from './login/+page.svelte'
+  import imageUrl from '$lib/login_background.jpg'
 
-  let user: User | null = null
   onMount(async () => {
     const token = sessionStorage.getItem('token')
     if (token) {
@@ -20,18 +20,14 @@
       }
     }
   })
-  credential.subscribe((value) => {
-    user = value
-  })
 </script>
 
-
-<div class="main_content">
+<div class="main_content" style="background-image: url({imageUrl})">
   {#if $credential === null}
     <Header />
     <Login />
   {:else}
-    <Menu/>
+    <Menu />
     <main>
       <slot />
     </main>
@@ -44,7 +40,6 @@
     height: 100vh;
     box-sizing: border-box;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    background-image: url("login_background.jpg");
     background-color: #000;
     display: flex;
     flex-direction: column;

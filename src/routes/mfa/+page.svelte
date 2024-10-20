@@ -42,7 +42,7 @@
 {#if mfaList != null}
   <section class="method_list">
     {#each allStrategies as strategy}
-      <Card {strategy} isEnable={mfaList.includes(strategy)} {setAction} />
+      <Card {strategy} alreadySetup={mfaList.includes(strategy)} {setAction} />
     {/each}
   </section>
 {:else}

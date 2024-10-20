@@ -1,3 +1,11 @@
+<script>
+  import imageAuthUrl from '$lib/auth.jpg'
+  import imageNotificationUrl from '$lib/notification.jpg'
+  import imageBillingUrl from '$lib/billing.jpg'
+  import imageClientUrl from '$lib/client.jpg'
+  import imageSymphonyUrl from '$lib/symphony.jpg'
+</script>
+
 <div>
   <section class="intro">
     <h2>The best benefit-cost authentication system around the block</h2>
@@ -16,7 +24,7 @@
   <section class="services">
     <h3>Services</h3>
     <div class="card_list">
-      <div class="card_item auth">
+      <div class="card_item" style="background-image: url({imageAuthUrl})">
         <div class="hide">
           <h4>Authentication</h4>
           <ul>
@@ -30,7 +38,10 @@
           </ul>
         </div>
       </div>
-      <div class="card_item notification">
+      <div
+        class="card_item"
+        style="background-image: url({imageNotificationUrl})"
+      >
         <div class="hide">
           <h4>Notification</h4>
           <ul>
@@ -43,7 +54,7 @@
           </ul>
         </div>
       </div>
-      <div class="card_item billing">
+      <div class="card_item" style="background-image: url({imageBillingUrl})">
         <div class="hide">
           <h4>Billing</h4>
           <ul>
@@ -55,7 +66,7 @@
           </ul>
         </div>
       </div>
-      <div class="card_item client">
+      <div class="card_item" style="background-image: url({imageClientUrl})">
         <div class="hide">
           <h4>Client</h4>
           <ul>
@@ -65,7 +76,7 @@
           </ul>
         </div>
       </div>
-      <div class="card_item symphony">
+      <div class="card_item" style="background-image: url({imageSymphonyUrl})">
         <div class="hide">
           <h4>Symphony</h4>
           <ul>
@@ -169,6 +180,7 @@
       gap: 50px;
       width: 100%;
       overflow-x: auto;
+      padding-bottom: 2vmin;
       div.card_item {
         list-style-type: none;
         background-repeat: repeat;
@@ -177,14 +189,20 @@
         height: 650px;
         min-width: 400px;
         min-height: 100%;
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
 
         div.hide {
-          visibility: hidden;
+          opacity: 0;
+          height: 100%;
+          background: linear-gradient(
+            rgba(255, 255, 255, 0.7),
+            rgba(0, 0, 0, 0.9)
+          );
+          text-align: center;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          transition: all 1s;
 
           ul {
             color: rgb(63, 63, 63);
@@ -194,68 +212,9 @@
             }
           }
         }
-        &:hover .hide {
-          visibility: visible;
-        }
-
-        &.auth {
-          background-image: url('auth.jpg');
-          &:hover {
-            background: linear-gradient(
-                rgba(255, 255, 255, 0.8),
-                rgba(0, 0, 0, 0.8)
-              ),
-              url('auth.jpg');
-            background-size: cover;
-            background-position: center;
-          }
-        }
-        &.notification {
-          background-image: url('notification.jpg');
-          &:hover {
-            background: linear-gradient(
-                rgba(255, 255, 255, 0.8),
-                rgba(0, 0, 0, 0.8)
-              ),
-              url('notification.jpg');
-            background-size: cover;
-            background-position: center;
-          }
-        }
-        &.billing {
-          background-image: url('billing.jpg');
-          &:hover {
-            background: linear-gradient(
-                rgba(255, 255, 255, 0.8),
-                rgba(0, 0, 0, 0.8)
-              ),
-              url('billing.jpg');
-            background-size: cover;
-            background-position: center;
-          }
-        }
-        &.client {
-          background-image: url('client.jpg');
-          &:hover {
-            background: linear-gradient(
-                rgba(255, 255, 255, 0.8),
-                rgba(0, 0, 0, 0.8)
-              ),
-              url('client.jpg');
-            background-size: cover;
-            background-position: center;
-          }
-        }
-        &.symphony {
-          background-image: url('symphony.jpg');
-          &:hover {
-            background: linear-gradient(
-                rgba(255, 255, 255, 0.8),
-                rgba(0, 0, 0, 0.8)
-              ),
-              url('symphony.jpg');
-            background-size: cover;
-            background-position: center;
+        &:hover {
+          & .hide {
+            opacity: 1;
           }
         }
       }
