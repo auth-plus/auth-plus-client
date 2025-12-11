@@ -13,7 +13,7 @@
 		"format": "prettier --write .",
 		"lint": "prettier --check . && eslint .",
 		"test:unit": "vitest",
-		"test": "npm run test:unit -- --run && PLAYWRIGHT_JSON_OUTPUT_NAME=results.xml npm run test:e2e -- --reporter=junit",
+		"test": "npm run test:unit -- --run && PLAYWRIGHT_JUNIT_OUTPUT_NAME=results.xml npm run test:e2e -- --reporter=junit",
 		"test:e2e": "playwright test"
 	},
 	"devDependencies": {
