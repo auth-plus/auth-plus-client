@@ -12,8 +12,8 @@
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"format": "prettier --write .",
 		"lint": "prettier --check . && eslint .",
-		"test:unit": "vitest",
-		"test": "npm run test:unit -- --run && PLAYWRIGHT_JUNIT_OUTPUT_NAME=results.xml npm run test:e2e -- --reporter=junit",
+		"test:unit": "vitest run --coverage",
+		"test": "npm run test:unit -- --run && PLAYWRIGHT_JUNIT_OUTPUT_NAME=test-results/results.xml npm run test:e2e -- --reporter=junit",
 		"test:e2e": "playwright test"
 	},
 	"devDependencies": {
@@ -28,6 +28,7 @@
 		"@types/node": "^24.10.3",
 		"@vitest/browser": "^4.0.15",
 		"@vitest/browser-playwright": "^4.0.15",
+		"@vitest/coverage-v8": "^4.0.15",
 		"eslint": "^9.39.1",
 		"eslint-config-prettier": "^10.1.8",
 		"eslint-plugin-svelte": "^3.13.1",

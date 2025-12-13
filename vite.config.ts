@@ -5,6 +5,11 @@ import { playwright } from '@vitest/browser-playwright'
 export default defineConfig({
 	plugins: [sveltekit()],
 	test: {
+		coverage: {
+			provider: 'v8',
+			include: ['src/**/*.{e2e}.{js,ts}'],
+			exclude: ['src/**/*.svelte.{test,spec}.{js,ts}']
+		},
 		expect: { requireAssertions: true },
 		projects: [
 			{
@@ -19,7 +24,7 @@ export default defineConfig({
 					include: ['src/**/*.svelte.{test,spec}.{js,ts}'],
 					exclude: ['src/lib/server/**'],
 					setupFiles: ['./vitest-setup-client.ts']
-				}
+				},
 			},
 			{
 				extends: './vite.config.ts',
