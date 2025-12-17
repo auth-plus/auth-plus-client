@@ -22,7 +22,7 @@
 		</tr>
 	</thead>
 	<tbody>
-		{#each list as usr}
+		{#each list as usr (usr.id)}
 			<tr>
 				<td>{usr.id}</td>
 				<td>{usr.name}</td>

@@ -1,11 +1,11 @@
 import { render, screen } from '@testing-library/svelte'
 import { describe, test, expect } from 'vitest'
 
-import Modal from '../src/routes/Header.svelte'
+import Header from '../src/routes/Header.svelte'
 
 describe('Header.svelte', () => {
 	test('should render Auth+', () => {
-		render(Modal)
+		render(Header)
 		expect(screen.getByText('Auth +')).toBeInTheDocument()
 	})
 })
