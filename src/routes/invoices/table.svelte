@@ -27,7 +27,7 @@
 			<td>a77aa649-5cdc-4d74-a695-6d2917c32619</td>
 			<td>pending</td>
 		</tr>
-		{#each list as usr}
+		{#each list as usr (usr.id)}
 			<tr>
 				<td>{usr.id}</td>
 				<td>{usr.user_id}</td>

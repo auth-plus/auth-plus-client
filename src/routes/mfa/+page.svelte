@@ -41,7 +41,7 @@
 
 {#if mfaList != null}
 	<section class="method_list">
-		{#each allStrategies as strategy}
+		{#each allStrategies as strategy (strategy)}
 			<Card {strategy} alreadySetup={mfaList.includes(strategy)} {setAction} />
 		{/each}
 	</section>

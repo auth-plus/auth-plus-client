@@ -1,5 +1,7 @@
 test-results
 node_modules
+coverage
+results-e2e.xml
 
 # Output
 .output
@@ -22,3 +24,9 @@ Thumbs.db
 # Vite
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+# Playwright
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/playwright/.auth/

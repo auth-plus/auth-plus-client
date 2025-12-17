@@ -6,5 +6,5 @@ export default defineConfig({
 		port: 4173
 	},
 	testDir: 'e2e',
-	reporter: [['junit', { outputFile: 'results.xml' }]]
+	reporter: [['junit', { outputFile: 'results-e2e.xml' }]]
 })

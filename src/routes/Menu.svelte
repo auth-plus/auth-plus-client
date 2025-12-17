@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { credential, type User } from '../stores/auth'
-
+	import { resolve } from '$app/paths'
 	let cred = $state<User | null>(null)
 
 	async function logout() {
@@ -17,10 +17,10 @@
 
 <nav>
 	<ul>
-		<li><a href="/">HOME</a></li>
-		<li><a href="/invoices">INVOICES</a></li>
-		<li><a href="/mfa">MFA</a></li>
-		<li><a href="/users">USERS</a></li>
+		<li><a href={resolve('/')}>HOME</a></li>
+		<li><a href={resolve('/invoices')}>INVOICES</a></li>
+		<li><a href={resolve('/mfa')}>MFA</a></li>
+		<li><a href={resolve('/users')}>USERS</a></li>
 	</ul>
 	<div class="user">
 		<button onclick={logout} class:isDisabled={cred == null} aria-label="user logout">

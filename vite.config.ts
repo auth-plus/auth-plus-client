@@ -1,35 +1,17 @@
 import { defineConfig } from 'vitest/config'
 import { sveltekit } from '@sveltejs/kit/vite'
-import { playwright } from '@vitest/browser-playwright'
+import { svelteTesting } from '@testing-library/svelte/vite'
 
 export default defineConfig({
-	plugins: [sveltekit()],
+	plugins: [sveltekit(), svelteTesting()],
 	test: {
+		coverage: {
+			provider: 'v8',
+			include: ['src/**/*.svelte']
+		},
 		expect: { requireAssertions: true },
-		projects: [
-			{
-				extends: './vite.config.ts',
-				test: {
-					name: 'client',
-					browser: {
-						enabled: true,
-						provider: playwright(),
-						instances: [{ browser: 'chromium' }]
-					},
-					include: ['src/**/*.svelte.{test,spec}.{js,ts}'],
-					exclude: ['src/lib/server/**'],
-					setupFiles: ['./vitest-setup-client.ts']
-				}
-			},
-			{
-				extends: './vite.config.ts',
-				test: {
-					name: 'server',
-					environment: 'node',
-					include: ['src/**/*.{test,spec}.{js,ts}'],
-					exclude: ['src/**/*.svelte.{test,spec}.{js,ts}']
-				}
-			}
-		]
+		environment: 'jsdom',
+		setupFiles: ['./vitest-setup.js'],
+		include: ['test/**/*.svelte.test.ts']
 	}
 })

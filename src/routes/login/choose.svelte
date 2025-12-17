@@ -22,7 +22,7 @@
 	<label for="login-strategy">Select a Multi-Factor Authentication (MFA) method</label>
 	<select name="cars" id="login-strategy" bind:value={strategyOption}>
 		<option value={null}>-</option>
-		{#each list as opt}
+		{#each list as opt (opt)}
 			<option value={opt}>{opt}</option>
 		{/each}
 	</select>
