@@ -1,11 +1,11 @@
 import { render, screen } from '@testing-library/svelte'
 import { describe, test, expect } from 'vitest'
 
-import Header from '../src/routes/Menu.svelte'
+import Menu from '../src/routes/Menu.svelte'
 
-describe('Header.svelte', () => {
+describe('Menu.svelte', () => {
 	test('should render Auth+', () => {
-		render(Header)
+		render(Menu)
 		expect(screen.getByText('HOME')).toBeInTheDocument()
 		expect(screen.getByText('HOME')).toHaveAttribute('href', '/')
 
