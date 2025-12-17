@@ -1,8 +1,10 @@
-# create-svelte
+# Auth+ Client
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+This a sample of use of Auth+ services
 
 [![Known Vulnerabilities](https://snyk.io/test/github/auth-plus/auth-plus-client/badge.svg)](https://snyk.io/test/github/auth-plus/auth-plus-client)
+
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=auth-plus_auth-plus-client&metric=coverage)](https://sonarcloud.io/summary/new_code?id=auth-plus_auth-plus-client)
 
 ## Auth-Plus-Client
 
@@ -14,4 +16,10 @@ npm ci
 
 # Run locally
 npm run dev
+
+# Run test
+npm test
+
+# Run lint
+npm run lint
 ```
