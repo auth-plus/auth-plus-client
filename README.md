@@ -17,9 +17,18 @@ npm ci
 # Run locally
 npm run dev
 
+# Run build
+npm rum build
+
+# Check build (CI-compatible, no artifacts)
+npm run build:check
+
 # Run test
 npm test
 
-# Run lint
+# Check lint (CI-compatible, no changes)
+npm run lint:check
+
+# Fix lint issues automatically
 npm run lint
 ```
