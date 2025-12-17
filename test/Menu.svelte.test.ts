@@ -20,6 +20,5 @@ describe('Header.svelte', () => {
 
 		expect(screen.getByTestId('logout-button')).toBeInTheDocument()
 		expect(screen.getByTestId('logout-button')).toHaveClass('isDisabled')
-
 	})
 })

@@ -23,7 +23,12 @@
 		<li><a href={resolve('/users')}>USERS</a></li>
 	</ul>
 	<div class="user">
-		<button data-testid="logout-button" onclick={logout} class:isDisabled={cred == null} aria-label="user logout">
+		<button
+			data-testid="logout-button"
+			onclick={logout}
+			class:isDisabled={cred == null}
+			aria-label="user logout"
+		>
 			<svg
 				version="1.2"
 				baseProfile="tiny"
