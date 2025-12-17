@@ -7,7 +7,9 @@ export default defineConfig({
 	test: {
 		coverage: {
 			provider: 'v8',
-			include: ['src/**/*.svelte']
+			include: ['src/**/*.svelte'],
+			reporter: ['html', 'lcov'],
+			reportsDirectory: './coverage'
 		},
 		expect: { requireAssertions: true },
 		environment: 'jsdom',
