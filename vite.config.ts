@@ -5,6 +5,7 @@ import { svelteTesting } from '@testing-library/svelte/vite'
 export default defineConfig({
 	plugins: [sveltekit(), svelteTesting()],
 	test: {
+		globals: true,
 		coverage: {
 			provider: 'v8',
 			include: ['src/**/*.{svelte,ts}', '!src/**/*.d.ts'],
