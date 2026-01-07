@@ -35,7 +35,7 @@ function createCredentialStore() {
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify({ email, password })
 		}
-		const url = `http://localhost:5000/login`
+		const url = `${process.env.AUTH_URL}/login`
 		const resp = await fetch(url, config)
 		if (resp.status !== 200) {
 			throw new Error("Login didn't work")
@@ -58,7 +58,7 @@ function createCredentialStore() {
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify({ hash, strategy })
 		}
-		const url = `http://localhost:5000/mfa/choose`
+		const url = `${process.env.AUTH_URL}/mfa/choose`
 		const resp = await fetch(url, config)
 		if (resp.status !== 200) {
 			throw new Error("Choose strategy didn't work")
@@ -74,7 +74,7 @@ function createCredentialStore() {
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify({ hash, code })
 		}
-		const url = `http://localhost:5000/mfa/code`
+		const url = `${process.env.AUTH_URL}/mfa/code`
 		const resp = await fetch(url, config)
 		if (resp.status !== 200) {
 			throw new Error("Choose strategy didn't work")
@@ -92,10 +92,10 @@ function createCredentialStore() {
 			mode: 'cors',
 			headers: { Authorization: `Bearer ${token}` }
 		}
-		const url = `http://localhost:5000/logout`
+		const url = `${process.env.AUTH_URL}/logout`
 		const resp = await fetch(url, config)
 		if (resp.status !== 200) {
-			throw new Error("Login didn't work")
+			throw new Error("Logout didn't work")
 		}
 		set(null)
 	}
@@ -108,7 +108,7 @@ function createCredentialStore() {
 				Authorization: `Bearer ${token}`
 			}
 		}
-		const url = `http://localhost:5000/login/refresh/${token}`
+		const url = `${process.env.AUTH_URL}/login/refresh/${token}`
 		const resp = await fetch(url, config)
 		if (resp.status !== 200) {
 			throw new Error("Refresh didn't work")

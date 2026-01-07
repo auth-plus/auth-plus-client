@@ -8,7 +8,7 @@ export async function listUser(
 			Authorization: `Bearer ${token}`
 		}
 	}
-	const url = `http://localhost:5000/user`
+	const url = `${process.env.AUTH_URL}/user`
 	const resp = await fetch(url, config)
 	if (resp.status !== 200) {
 		throw new Error("List users didn't work")
@@ -32,7 +32,7 @@ export async function createNewUser(
 		},
 		body: JSON.stringify({ name, email, password })
 	}
-	const url = `http://localhost:5000/user`
+	const url = `${process.env.AUTH_URL}/user`
 	const resp = await fetch(url, config)
 	if (resp.status !== 201) {
 		throw new Error("Create a new user didn't work")
