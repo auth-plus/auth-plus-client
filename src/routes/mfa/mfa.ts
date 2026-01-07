@@ -17,7 +17,7 @@ export async function listMfa(userId: string, token: string): Promise<Strategy[]
 	const url = `${AUTH_URL}/mfa/${userId}`
 	const resp = await fetch(url, config)
 	if (resp.status !== 200) {
-		throw new Error("Refresh didn't work")
+		throw new Error("MFA ;listing didn't work")
 	}
 	const resJson = await resp.json()
 	if (!(resJson.resp instanceof Array)) {
@@ -44,7 +44,7 @@ export async function createMfa(
 	const url = `${AUTH_URL}/mfa`
 	const resp = await fetch(url, config)
 	if (resp.status !== 200) {
-		throw new Error("Refresh didn't work")
+		throw new Error("MFA creation didn't work")
 	}
 	return resp.json()
 }

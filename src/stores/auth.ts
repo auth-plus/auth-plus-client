@@ -96,7 +96,7 @@ function createCredentialStore() {
 		const url = `${AUTH_URL}/logout`
 		const resp = await fetch(url, config)
 		if (resp.status !== 200) {
-			throw new Error("Login didn't work")
+			throw new Error("Logout didn't work")
 		}
 		set(null)
 	}
