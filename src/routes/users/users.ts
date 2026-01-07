@@ -1,3 +1,5 @@
+import { AUTH_URL } from '$env/static/private'
+
 export async function listUser(
 	token: string
 ): Promise<{ id: string; name: string; email: string }[]> {
@@ -8,7 +10,7 @@ export async function listUser(
 			Authorization: `Bearer ${token}`
 		}
 	}
-	const url = `${process.env.AUTH_URL}/user`
+	const url = `${AUTH_URL}/user`
 	const resp = await fetch(url, config)
 	if (resp.status !== 200) {
 		throw new Error("List users didn't work")
@@ -32,7 +34,7 @@ export async function createNewUser(
 		},
 		body: JSON.stringify({ name, email, password })
 	}
-	const url = `${process.env.AUTH_URL}/user`
+	const url = `${AUTH_URL}/user`
 	const resp = await fetch(url, config)
 	if (resp.status !== 201) {
 		throw new Error("Create a new user didn't work")

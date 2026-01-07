@@ -1,3 +1,5 @@
+import { AUTH_URL } from '$env/static/private';
+
 export enum Strategy {
 	PHONE = 'PHONE',
 	EMAIL = 'EMAIL',
@@ -12,7 +14,7 @@ export async function listMfa(userId: string, token: string): Promise<Strategy[]
 			Authorization: `Bearer ${token}`
 		}
 	}
-	const url = `${process.env.AUTH_URL}/mfa/${userId}`
+	const url = `${AUTH_URL}/mfa/${userId}`
 	const resp = await fetch(url, config)
 	if (resp.status !== 200) {
 		throw new Error("Refresh didn't work")
@@ -39,7 +41,7 @@ export async function createMfa(
 		},
 		body: JSON.stringify({ userId, strategy })
 	}
-	const url = `${process.env.AUTH_URL}/mfa`
+	const url = `${AUTH_URL}/mfa`
 	const resp = await fetch(url, config)
 	if (resp.status !== 200) {
 		throw new Error("Refresh didn't work")
