@@ -1,6 +1,5 @@
 import { writable } from 'svelte/store'
 import type { Strategy } from '../routes/mfa/mfa'
-import { AUTH_URL } from '$env/static/private'
 
 export interface User {
 	email: string
@@ -36,7 +35,7 @@ function createCredentialStore() {
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify({ email, password })
 		}
-		const url = `${AUTH_URL}/login`
+		const url = `${process.env.AUTH_URL}/login`
 		const resp = await fetch(url, config)
 		if (resp.status !== 200) {
 			throw new Error("Login didn't work")
@@ -59,7 +58,7 @@ function createCredentialStore() {
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify({ hash, strategy })
 		}
-		const url = `${AUTH_URL}/mfa/choose`
+		const url = `${process.env.AUTH_URL}/mfa/choose`
 		const resp = await fetch(url, config)
 		if (resp.status !== 200) {
 			throw new Error("Choose strategy didn't work")
@@ -75,7 +74,7 @@ function createCredentialStore() {
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify({ hash, code })
 		}
-		const url = `${AUTH_URL}/mfa/code`
+		const url = `${process.env.AUTH_URL}/mfa/code`
 		const resp = await fetch(url, config)
 		if (resp.status !== 200) {
 			throw new Error("Choose strategy didn't work")
@@ -93,7 +92,7 @@ function createCredentialStore() {
 			mode: 'cors',
 			headers: { Authorization: `Bearer ${token}` }
 		}
-		const url = `${AUTH_URL}/logout`
+		const url = `${process.env.AUTH_URL}/logout`
 		const resp = await fetch(url, config)
 		if (resp.status !== 200) {
 			throw new Error("Logout didn't work")
@@ -109,7 +108,7 @@ function createCredentialStore() {
 				Authorization: `Bearer ${token}`
 			}
 		}
-		const url = `${AUTH_URL}/login/refresh/${token}`
+		const url = `${process.env.AUTH_URL}/login/refresh/${token}`
 		const resp = await fetch(url, config)
 		if (resp.status !== 200) {
 			throw new Error("Refresh didn't work")
