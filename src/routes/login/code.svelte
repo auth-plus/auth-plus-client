@@ -1,54 +1,47 @@
 <script lang="ts">
-	import { credential } from '../../stores/auth'
+  import { credential } from '../../stores/auth'
 
-	type Props = {
-		hash: string
-	}
+  type Props = {
+    hash: string
+  }
 
-	let { hash }: Props = $props()
+  let { hash }: Props = $props()
+  let code = $state('')
 
-	let code = $state('')
-
-	async function submitCode() {
-		await credential.loginCode(hash, code)
-	}
+  async function submitCode() {
+    await credential.loginCode(hash, code)
+  }
 </script>
 
-<form onsubmit={submitCode}>
-	<label for="login-code">Enter the verification code sent to you</label>
-	<input id="login-code" bind:value={code} placeholder="123456" />
-	<input type="submit" value="Sign In" />
-</form>
+<div class="flex min-h-screen items-center justify-center bg-stone-50 font-serif p-4">
+  <div class="w-full max-w-md border border-stone-300 bg-white p-10 shadow-2xl">
+    <form onsubmit={submitCode} class="flex flex-col gap-8">
+      <div class="text-center">
+        <h2 class="text-2xl uppercase tracking-tight text-stone-900">Enter Code</h2>
+        <p class="mt-2 italic text-stone-600">Verification sent to your device</p>
+      </div>
 
-<style lang="scss">
-	form {
-		width: 30%;
-		margin-left: auto;
-		margin-right: auto;
-		box-sizing: border-box;
-		background-color: rgba(0, 0, 0, 0.3);
-		padding: 2vw;
-		border-radius: 1vw;
-		color: white;
-		margin: 0;
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		-ms-transform: translate(-50%, -50%);
-		transform: translate(-50%, -50%);
-		display: flex;
-		flex-direction: column;
-		gap: 1vmin;
-		input {
-			margin: 0.5vw 0;
-			display: block;
-			padding: 1vmin;
-			border-radius: 3px;
-			border: none;
-			width: 100%;
-			box-sizing: border-box;
-			background-color: rgba(255, 255, 255, 1);
-			cursor: pointer;
-		}
-	}
-</style>
+      <div class="flex flex-col items-center">
+        <label for="login-code" class="mb-4 text-xs uppercase tracking-widest text-stone-500">Verification Code</label>
+        <input
+          id="login-code"
+          bind:value={code}
+          placeholder="000000"
+          maxlength="6"
+          class="w-full border-b-2 border-stone-900 bg-transparent text-center text-5xl font-light tracking-[0.5em] text-stone-900 placeholder-stone-200 focus:outline-none" />
+      </div>
+
+      <div class="space-y-4">
+        <button
+          type="submit"
+          class="w-full bg-stone-900 py-4 font-bold uppercase tracking-[0.2em] text-white transition-all hover:bg-stone-800">
+          Verify & Sign In
+        </button>
+
+        <button type="button" class="w-full text-sm uppercase tracking-widest text-stone-400 hover:text-stone-900 transition-colors">
+          Resend Code
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,27 +1,19 @@
 <script lang="ts">
-	import Table from './table.svelte'
+  import Table from './table.svelte'
 </script>
 
-<section class="description">
-	<h2>Reviewing a complete list of invoices generated for your transactions.</h2>
-	<p>
-		Whenever a new multi-factor authentication (MFA) is created, either for an individual user or an
-		entire organization, an invoice will be generated.
-	</p>
-</section>
+<div class="min-h-screen bg-stone-50 font-serif text-stone-900">
+  <section class="mx-auto max-w-4xl px-8 py-16 text-center lg:py-24">
+    <h2 class="mb-6 text-4xl uppercase tracking-tight text-stone-800">Invoice Ledger</h2>
+    <p class="mx-auto max-w-2xl text-lg italic leading-relaxed text-stone-600">
+      Whenever a new multi-factor authentication (MFA) is created, either for an individual user or
+      an entire organization, a unique invoice is generated and archived here.
+    </p>
+  </section>
 
-<section class="invoice_list">
-	<Table />
-</section>
-
-<style lang="scss">
-	section.description {
-		padding: 5vmin;
-		max-width: 60%;
-	}
-	section.invoice_list {
-		width: 100%;
-		padding: 3vmin;
-		background-color: rgb(240, 230, 209);
-	}
-</style>
+  <section class="bg-stone-200 py-12 shadow-inner">
+    <div class="mx-auto max-w-6xl px-4 md:px-8">
+      <Table />
+    </div>
+  </section>
+</div>

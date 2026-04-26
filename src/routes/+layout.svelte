@@ -1,53 +1,41 @@
-<script lang="ts">
-	import Header from './Header.svelte'
-	import Menu from './Menu.svelte'
+<script>
+  import '../app.css'
+  import Menu from './Menu.svelte'
 
-	import { onMount } from 'svelte'
-	import { credential } from '../stores/auth'
-	import Login from './login/+page.svelte'
-	import imageUrl from '$lib/login_background.jpg'
+  import { onMount } from 'svelte'
+  import { credential } from '../stores/auth'
 
-	let { children } = $props()
+  let { children } = $props()
 
-	onMount(async () => {
-		const token = sessionStorage.getItem('token')
-		if (token) {
-			try {
-				const newToken = await credential.refresh(token)
-				sessionStorage.setItem('token', newToken)
-			} catch (error) {
-				console.error(error)
-				sessionStorage.removeItem('token')
-				credential.logout(token)
-			}
-		}
-	})
+  onMount(async () => {
+    const token = sessionStorage.getItem('token')
+    if (token) {
+      try {
+        const newToken = await credential.refresh(token)
+        sessionStorage.setItem('token', newToken)
+      } catch (error) {
+        console.error(error)
+        sessionStorage.removeItem('token')
+        credential.logout(token)
+      }
+    }
+  })
 </script>
 
-<div class="main_content" style="background-image: url({imageUrl})">
-	{#if $credential === null}
-		<Header />
-		<Login />
-	{:else}
-		<Menu />
-		<main>
-			{@render children?.()}
-		</main>
-	{/if}
+<div class="flex min-h-screen w-full flex-col bg-stone-50 font-serif text-stone-900">
+    <Menu />
+    <main class="flex-grow bg-white">
+      <div class="mx-auto max-w-7xl px-8 py-12">
+        {@render children?.()}
+      </div>
+    </main>
 </div>
 
-<style lang="scss">
-	div.main_content {
-		width: 100%;
-		height: 100vh;
-		box-sizing: border-box;
-		font-family: Verdana, Geneva, Tahoma, sans-serif;
-		background-color: #000;
-		display: flex;
-		flex-direction: column;
-		main {
-			background-color: white;
-			flex-grow: 1;
-		}
-	}
+<style>
+  :global(body) {
+    margin: 0;
+    /* Updated global font to match the Gallery aesthetic */
+    font-family: 'Playfair Display', serif;
+    background-color: #f5f5f4; /* stone-100 */
+  }
 </style>

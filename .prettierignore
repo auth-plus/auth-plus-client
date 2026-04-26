@@ -4,6 +4,6 @@ pnpm-lock.yaml
 yarn.lock
 bun.lock
 bun.lockb
-
+node_modules/
 # Miscellaneous
 /static/

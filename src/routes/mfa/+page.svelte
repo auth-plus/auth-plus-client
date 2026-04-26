@@ -1,68 +1,54 @@
 <script lang="ts">
-	import { onMount } from 'svelte'
+  import { onMount } from 'svelte'
 
-	import { listMfa, Strategy } from './mfa'
-	import { credential } from '../../stores/auth'
-	import Card from './strategy.svelte'
-	import Modal from './modal.svelte'
+  import { listMfa, Strategy } from './mfa'
+  import { credential } from '../../stores/auth'
+  import Card from './strategy.svelte'
+  import Modal from './modal.svelte'
 
-	const allStrategies = [Strategy.EMAIL, Strategy.PHONE, Strategy.GA]
+  const allStrategies = [Strategy.EMAIL, Strategy.PHONE, Strategy.GA]
 
-	let mfaList = $state<Strategy[] | null>(null)
+  let mfaList = $state<Strategy[] | null>(null)
 
-	let strategyChoosed = $state<Strategy | null>(null)
-	let secret = $state('')
+  let strategyChoosed = $state<Strategy | null>(null)
 
-	onMount(async () => {
-		if ($credential === null) {
-			throw new Error('Credential shoudl be setted by now')
-		}
-		mfaList = await listMfa($credential.id, $credential.token)
-	})
+  onMount(async () => {
+    if ($credential === null) {
+      throw new Error('Credential shoudl be setted by now')
+    }
+    mfaList = await listMfa($credential.id, $credential.token)
+  })
 
-	function setAction(strategy: Strategy, mfaId: string) {
-		if ($credential === null) {
-			throw new Error('Credential shoudl be setted by now')
-		}
-		if (strategy === Strategy.GA) {
-			secret = mfaId
-		}
-		strategyChoosed = strategy
-	}
+  function setChoose(strategy: Strategy) {
+    strategyChoosed = strategy
+  }
+  function closeModal() {
+    strategyChoosed = null
+  }
 </script>
 
-<section class="description">
-	<h2>Choose a verification method. It's a good security practice.</h2>
-	<p>
-		Select a new security factor for your account. Available options include email verification, SMS
-		codes, and time-based one-time passwords (TOTP).
-	</p>
-</section>
+<header class="border-b border-stone-300 bg-stone-50 px-8 py-20 text-center">
+  <h2 class="mb-4 font-serif text-5xl uppercase tracking-tight text-stone-900">
+    Choose a verification method.
+  </h2>
+  <p class="mx-auto max-w-2xl text-lg italic text-stone-600">
+    Select a new security factor for your account. Options include email, SMS, and TOTP.
+  </p>
+</header>
 
 {#if mfaList != null}
-	<section class="method_list">
-		{#each allStrategies as strategy (strategy)}
-			<Card {strategy} alreadySetup={mfaList.includes(strategy)} {setAction} />
-		{/each}
-	</section>
+  <section class="bg-stone-200 px-8 py-24">
+    <div class="mx-auto grid max-w-7xl grid-cols-1 gap-16 md:grid-cols-2 lg:grid-cols-3">
+      {#each allStrategies as strategy (strategy)}
+        <Card {strategy} alreadySetup={mfaList.includes(strategy)} {setChoose} />
+      {/each}
+    </div>
+  </section>
+  {#if strategyChoosed != null && $credential}
+    <Modal {strategyChoosed} alreadySetup={mfaList.includes(strategyChoosed)} {closeModal} />
+  {/if}
 {:else}
-	<p>...waiting</p>
+  <div class="bg-stone-200 py-24 text-center font-serif italic text-stone-500">
+    <p>...waiting</p>
+  </div>
 {/if}
-
-{#if strategyChoosed != null && $credential}
-	<Modal {secret} {strategyChoosed} email={$credential.email} />
-{/if}
-
-<style lang="scss">
-	section.description {
-		padding: 5vmin;
-		max-width: 60%;
-	}
-	section.method_list {
-		background-color: rgb(228, 228, 228);
-		padding: 5vmin;
-		display: flex;
-		gap: 10vmin;
-		justify-content: space-evenly;
-	}
-</style>
