@@ -19,7 +19,8 @@
     secret = scrt
   }
 
-  async function createNewStrategy() {
+  async function createNewStrategy(event: SubmitEvent) {
+    event.preventDefault()
     if ($credential === null) {
       throw new Error('Credential shoudl be setted by now')
     }

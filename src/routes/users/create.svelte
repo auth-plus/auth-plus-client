@@ -10,7 +10,8 @@
   let email = $state('')
   let password = $state('')
 
-  async function createNew() {
+  async function createNew(event: SubmitEvent) {
+    event.preventDefault()
     if (!$credential) {
       throw new Error('credential should be setted')
     }

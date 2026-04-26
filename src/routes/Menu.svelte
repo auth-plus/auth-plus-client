@@ -64,7 +64,7 @@
       </button>
     </div>
   {:else}
-    <div class="flex items-center gap-4">
+    <div class="flex items-center gap-4" data-testid="login-button">
       <a
         href={resolve('/login')}
         class="text-xs font-bold uppercase tracking-[0.2em] text-stone-500 no-underline transition-colors hover:text-stone-900">

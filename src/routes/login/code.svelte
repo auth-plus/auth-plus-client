@@ -8,12 +8,13 @@
   let { hash }: Props = $props()
   let code = $state('')
 
-  async function submitCode() {
+  async function submitCode(event: SubmitEvent) {
+    event.preventDefault()
     await credential.loginCode(hash, code)
   }
 </script>
 
-<div class="flex min-h-screen items-center justify-center bg-stone-50 font-serif p-4">
+<div class="flex min-h-screen items-center justify-center bg-stone-50 p-4 font-serif">
   <div class="w-full max-w-md border border-stone-300 bg-white p-10 shadow-2xl">
     <form onsubmit={submitCode} class="flex flex-col gap-8">
       <div class="text-center">
@@ -22,7 +23,8 @@
       </div>
 
       <div class="flex flex-col items-center">
-        <label for="login-code" class="mb-4 text-xs uppercase tracking-widest text-stone-500">Verification Code</label>
+        <label for="login-code" class="mb-4 text-xs uppercase tracking-widest text-stone-500"
+          >Verification Code</label>
         <input
           id="login-code"
           bind:value={code}
@@ -38,7 +40,9 @@
           Verify & Sign In
         </button>
 
-        <button type="button" class="w-full text-sm uppercase tracking-widest text-stone-400 hover:text-stone-900 transition-colors">
+        <button
+          type="button"
+          class="w-full text-sm uppercase tracking-widest text-stone-400 transition-colors hover:text-stone-900">
           Resend Code
         </button>
       </div>

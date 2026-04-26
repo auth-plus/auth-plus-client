@@ -2,7 +2,7 @@
   import { credential, type MFAChoose } from '../../stores/auth'
   import { goto } from '$app/navigation'
   import { resolve } from '$app/paths'
-  
+
   type Props = {
     setMfaChoose: (value: MFAChoose) => void
   }
@@ -12,8 +12,8 @@
   let password = $state('')
   let loginError = $state('')
 
-  async function submit(e: Event) {
-    e.preventDefault()
+  async function submit(event: SubmitEvent) {
+    event.preventDefault()
     try {
       const mfaCh = await credential.login(email, password)
       if (mfaCh != null) {

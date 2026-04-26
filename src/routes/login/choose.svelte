@@ -11,13 +11,14 @@
   let { list, hash, setMfaCodeHash }: Props = $props()
   let strategyOption = $state<string | null>(null)
 
-  async function submitChoose() {
+  async function submitChoose(event: SubmitEvent) {
+    event.preventDefault()
     const mfaCodeHash = await credential.chooseStrategy(hash, strategyOption as Strategy)
     setMfaCodeHash(mfaCodeHash)
   }
 </script>
 
-<div class="flex min-h-screen items-center justify-center bg-stone-50 font-serif p-4">
+<div class="flex min-h-screen items-center justify-center bg-stone-50 p-4 font-serif">
   <div class="w-full max-w-md border border-stone-300 bg-white p-10 shadow-2xl">
     <form onsubmit={submitChoose} class="flex flex-col gap-8">
       <div class="text-center">
@@ -26,7 +27,10 @@
       </div>
 
       <div class="bg-stone-100 p-6">
-        <label for="login-strategy" class="mb-3 block text-xs uppercase tracking-widest text-stone-500">Authentication Method</label>
+        <label
+          for="login-strategy"
+          class="mb-3 block text-xs uppercase tracking-widest text-stone-500"
+          >Authentication Method</label>
         <select
           id="login-strategy"
           bind:value={strategyOption}

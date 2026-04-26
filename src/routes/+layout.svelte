@@ -23,12 +23,12 @@
 </script>
 
 <div class="flex min-h-screen w-full flex-col bg-stone-50 font-serif text-stone-900">
-    <Menu />
-    <main class="flex-grow bg-white">
-      <div class="mx-auto max-w-7xl px-8 py-12">
-        {@render children?.()}
-      </div>
-    </main>
+  <Menu />
+  <main class="flex-grow bg-white">
+    <div class="mx-auto max-w-7xl px-8 py-12">
+      {@render children?.()}
+    </div>
+  </main>
 </div>
 
 <style>
