@@ -35,8 +35,8 @@ test.describe('Login Flow', () => {
 
     // Verify redirection and session storage
     const token = await page.evaluate(() => sessionStorage.getItem('token'))
-    await expect(page).toHaveURL('/')
     expect(token).toBe('mock-session-token')
+    await expect(page).toHaveURL('/')
   })
 
   test('login with MFA triggers the MFA Selection view', async ({ page }) => {
@@ -63,7 +63,7 @@ test.describe('Login Flow', () => {
 
   test('should display error message on failed login', async ({ page }) => {
     // Mock a 401 Unauthorized error
-    await page.route('**/api/login', async (route) => {
+    await page.route('**/login', async (route) => {
       await route.fulfill({
         status: 401,
         contentType: 'application/json',
