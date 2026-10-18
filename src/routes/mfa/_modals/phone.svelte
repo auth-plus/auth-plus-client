@@ -36,13 +36,13 @@
   </div>
 
   <div class="flex flex-col">
-    <span class="mb-1 text-sm font-black uppercase tracking-widest text-stone-900">
+    <span class="mb-1 text-sm font-black tracking-widest text-stone-900 uppercase">
       Mobile Verification
     </span>
     <p
-      class="text-xs italic leading-relaxed text-stone-500 transition-colors group-hover:text-stone-700">
+      class="text-xs leading-relaxed text-stone-500 italic transition-colors group-hover:text-stone-700">
       {#if user?.info?.phone}
-        Dispatch to <span class="font-mono font-bold not-italic text-stone-900"
+        Dispatch to <span class="font-mono font-bold text-stone-900 not-italic"
           >{user?.info?.phone}</span>
       {:else}
         No contact registry identified.

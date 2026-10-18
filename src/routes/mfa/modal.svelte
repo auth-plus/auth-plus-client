@@ -36,10 +36,10 @@
   <div
     class="relative w-full max-w-md border border-stone-400 bg-stone-50 p-8 shadow-[20px_20px_0px_0px_rgba(28,25,23,1)] md:p-10">
     <header class="mb-10 border-b-2 border-stone-200 pb-6">
-      <h2 class="font-serif text-4xl uppercase leading-none tracking-tighter text-stone-900">
+      <h2 class="font-serif text-4xl leading-none tracking-tighter text-stone-900 uppercase">
         Verification
       </h2>
-      <p class="mt-3 text-xs font-medium uppercase italic tracking-widest text-stone-500">
+      <p class="mt-3 text-xs font-medium tracking-widest text-stone-500 uppercase italic">
         Security Protocol Activation
       </p>
     </header>
@@ -59,7 +59,7 @@
         <div class="group relative">
           <label
             for="login-code"
-            class="mb-2 block text-[10px] font-bold uppercase tracking-[0.3em] text-stone-400"
+            class="mb-2 block text-[10px] font-bold tracking-[0.3em] text-stone-400 uppercase"
             >Enter Signature</label>
           <input
             id="login-code"
@@ -75,7 +75,7 @@
         <button
           type="submit"
           disabled={code.length !== 6}
-          class="w-full transform bg-stone-900 px-6 py-5 font-black uppercase tracking-[0.2em] text-stone-50 transition-all hover:bg-stone-800 active:scale-[0.98] disabled:cursor-not-allowed disabled:bg-stone-200 disabled:text-stone-400">
+          class="w-full transform bg-stone-900 px-6 py-5 font-black tracking-[0.2em] text-stone-50 uppercase transition-all hover:bg-stone-800 active:scale-[0.98] disabled:cursor-not-allowed disabled:bg-stone-200 disabled:text-stone-400">
           Confirm Activation
         </button>
       </form>
@@ -85,7 +85,7 @@
       <button
         type="button"
         onclick={closeModal}
-        class="mx-auto block text-[10px] font-black uppercase tracking-[0.4em] text-stone-400 transition-colors hover:text-stone-900">
+        class="mx-auto block text-[10px] font-black tracking-[0.4em] text-stone-400 uppercase transition-colors hover:text-stone-900">
         [ Close ]
       </button>
     </footer>

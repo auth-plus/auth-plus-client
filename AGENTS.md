@@ -23,6 +23,7 @@ O `auth-plus-client` é o frontend web unificado que permite aos usuários inter
 ## 2. Regras de Negócio e Fluxos de Interface
 
 ### 2.1. Fluxo de Login Adaptativo com Desafio MFA
+
 A tela `/login` implementa uma máquina de estados visual que responde ao retorno do backend:
 
 ```
@@ -59,11 +60,13 @@ A tela `/login` implementa uma máquina de estados visual que responde ao retorn
 2. **Desafio MFA (`MFAChoose`):** Se o retorno trouxer `{ hash, strategyList }`, a UI bloqueia a navegação, esconde o formulário básico e renderiza o componente de seleção de canal. Após escolha e validação do código OTP, a credencial é estabelecida.
 
 ### 2.2. Gestão de Sessão do Usuário (`stores/auth.ts`)
+
 1. **Estado Reativo:** A store expõe métodos `login`, `logout`, `refresh`, `chooseStrategy` e `loginCode`.
 2. **Injeção de Credenciais:** Requisições para rotas protegidas injetam automaticamente o cabeçalho `Authorization: Bearer <token>`.
 3. **Logout:** O logout limpa o estado reativo local e chama o endpoint `/logout` para revogação de tokens no servidor.
 
 ### 2.3. Funcionalidades e Telas Principais
+
 - **`/login`**: Ponto de entrada de credenciais e resolução de desafios MFA.
 - **`/users`**: Gestão e listagem de usuários da organização, com modal para cadastro de novos acessos.
 - **`/invoices`**: Visualização do histórico financeiro e faturas emitidas pelo backend de billing.

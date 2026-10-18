@@ -28,10 +28,10 @@
 </script>
 
 <header class="border-b border-stone-300 bg-stone-50 px-8 py-20 text-center">
-  <h2 class="mb-4 font-serif text-5xl uppercase tracking-tight text-stone-900">
+  <h2 class="mb-4 font-serif text-5xl tracking-tight text-stone-900 uppercase">
     Choose a verification method.
   </h2>
-  <p class="mx-auto max-w-2xl text-lg italic text-stone-600">
+  <p class="mx-auto max-w-2xl text-lg text-stone-600 italic">
     Select a new security factor for your account. Options include email, SMS, and TOTP.
   </p>
 </header>
@@ -48,7 +48,7 @@
     <Modal {strategyChoosed} alreadySetup={mfaList.includes(strategyChoosed)} {closeModal} />
   {/if}
 {:else}
-  <div class="bg-stone-200 py-24 text-center font-serif italic text-stone-500">
+  <div class="bg-stone-200 py-24 text-center font-serif text-stone-500 italic">
     <p>...waiting</p>
   </div>
 {/if}

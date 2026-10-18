@@ -37,12 +37,12 @@
     onsubmit={submit}
     class="flex w-full max-w-md flex-col gap-6 border border-stone-300 bg-white p-10 shadow-2xl">
     <div class="text-center">
-      <h1 class="text-3xl uppercase tracking-tight text-stone-900">Welcome Back</h1>
-      <p class="mt-2 italic text-stone-600">Please enter your credentials</p>
+      <h1 class="text-3xl tracking-tight text-stone-900 uppercase">Welcome Back</h1>
+      <p class="mt-2 text-stone-600 italic">Please enter your credentials</p>
     </div>
     <div class="space-y-4">
       <div>
-        <label for="login-email" class="mb-1 block text-sm uppercase tracking-widest text-stone-500"
+        <label for="login-email" class="mb-1 block text-sm tracking-widest text-stone-500 uppercase"
           >Email</label>
         <input
           id="login-email"
@@ -53,7 +53,7 @@
       </div>
 
       <div>
-        <label for="login-pw" class="mb-1 block text-sm uppercase tracking-widest text-stone-500"
+        <label for="login-pw" class="mb-1 block text-sm tracking-widest text-stone-500 uppercase"
           >Password</label>
         <input
           id="login-pw"
@@ -66,7 +66,7 @@
 
     <button
       type="submit"
-      class="group relative mt-2 flex w-full items-center justify-center gap-3 bg-stone-900 px-6 py-4 font-bold uppercase tracking-[0.2em] text-white transition-all hover:bg-stone-800 active:scale-[0.98]">
+      class="group relative mt-2 flex w-full items-center justify-center gap-3 bg-stone-900 px-6 py-4 font-bold tracking-[0.2em] text-white uppercase transition-all hover:bg-stone-800 active:scale-[0.98]">
       <span>Sign In</span>
       <svg
         class="h-4 w-4 transition-transform group-hover:translate-x-1"
@@ -82,7 +82,7 @@
     </button>
 
     {#if loginError !== ''}
-      <div class="border border-red-200 bg-red-50 p-3 text-center text-sm italic text-red-800">
+      <div class="border border-red-200 bg-red-50 p-3 text-center text-sm text-red-800 italic">
         {loginError}
       </div>
     {/if}

@@ -21,31 +21,41 @@ Sync Impact Report:
 ## Core Principles
 
 ### I. Reactive State & Store-Driven Session Lifecycle
+
 Session state, user credentials, and active challenges MUST be managed centrally through reactive Svelte stores (`src/stores/auth.ts`). UI components MUST consume stores reactively and MUST NOT directly mutate session state or duplicate auth persistence logic.
+
 - **Store Contract**: The `auth` store MUST expose and govern `login`, `logout`, `refresh`, `chooseStrategy`, and `loginCode`.
 - **Direct Login**: When the backend returns a direct `token`, credentials MUST be populated in the `credential` store, saved to session storage, and redirected to `/`.
 - **Credential Injection**: Authenticated requests to protected backend routes MUST automatically inject the `Authorization: Bearer <token>` header.
 - **Revocation on Logout**: Logout MUST clear local reactive state and call the server-side `/logout` endpoint to guarantee remote token revocation.
 
 ### II. Adaptive Login & State Machine Integrity
+
 The `/login` route operates as a strict visual state machine responding to backend challenge responses:
+
 - **Direct Auth**: If no MFA is required, credentials issue a direct session token.
 - **MFA Challenge**: When receiving `{ hash, strategyList }`, the UI MUST block navigation, hide the primary credentials form, and render the `MFAChoose` strategy selector (Email, SMS, Authenticator App).
 - **OTP Verification**: After strategy dispatch, the UI MUST transition to OTP code entry (`/mfa/code`), completing session establishment upon code validation.
 - **Regression Invariance**: Any modification to form controls, selectors, or transitions in `/login` MUST be validated against Playwright E2E tests (`npm run test:e2e`).
 
 ### III. Environment Isolation & Backend Decoupling
+
 The application acts as a decoupled frontend consuming Auth+ backend microservices.
+
 - **Dynamic Configuration**: All backend API endpoints MUST be sourced from public environment variables (`PUBLIC_AUTH_URL`, `PUBLIC_BILLING_URL`, etc.). Hardcoded URLs and hostnames are strictly prohibited.
 - **Containerization & Networking**: Development and container runtimes MUST respect designated port mappings (Host `5003` $\rightarrow$ Container `3000`).
 
 ### IV. Mandatory Visual Feedback & Resilient Async Operations
+
 User experience must remain transparent and resilient across all asynchronous operations (login submission, MFA strategy dispatch, OTP code validation, user creation, and invoice retrieval):
+
 - **Loading States**: Every async action MUST display deterministic visual indicators (spinners, disabled submission controls) while in-flight.
 - **Error Transparency**: Network and business errors MUST be caught, parsed, and displayed with actionable, user-friendly feedback. Silent failures, unhandled promise rejections, and unresponsive UI states are strictly prohibited.
 
 ### V. Non-Negotiable Test Discipline & Quality Gates
+
 System reliability is governed by a dual-layer testing strategy:
+
 - **Unit & Component Tests**: Vitest (`npm run test:unit`) for stores, component rendering, and utility functions.
 - **End-to-End Tests**: Playwright (`npm run test:e2e`) verifying complete user journeys across `/login`, MFA challenge handling, user management, and invoices.
 - **Pre-Merge Quality Gate**: Every commit and pull request MUST pass:

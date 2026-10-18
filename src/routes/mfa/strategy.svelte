@@ -1,8 +1,8 @@
 <script lang="ts">
   import { Strategy } from './mfa'
-  import imageEmailUrl from '$lib/email.jpg'
-  import imagePhoneUrl from '$lib/phone.jpg'
-  import imageClockUrl from '$lib/clock.jpg'
+  import imageEmailUrl from '#lib/email.jpg'
+  import imagePhoneUrl from '#lib/phone.jpg'
+  import imageClockUrl from '#lib/clock.jpg'
 
   type Props = {
     strategy: Strategy
@@ -28,7 +28,7 @@
         : 'cursor-pointer grayscale hover:grayscale-0'}"
       style="background-image: url({getImage()})">
       <span
-        class="absolute bottom-0 left-0 border-r border-t border-stone-200 bg-white px-4 py-2 font-serif font-bold uppercase tracking-widest text-stone-900">
+        class="absolute bottom-0 left-0 border-t border-r border-stone-200 bg-white px-4 py-2 font-serif font-bold tracking-widest text-stone-900 uppercase">
         {#if strategy === Strategy.PHONE}
           PHONE
         {:else if strategy === Strategy.EMAIL}
@@ -41,8 +41,8 @@
   </div>
 
   <div class="mt-4 border-l-2 border-stone-400 pl-4">
-    <h4 class="text-xl font-bold uppercase tracking-widest text-stone-900">{strategy}</h4>
-    <p class="text-sm italic text-stone-600">
+    <h4 class="text-xl font-bold tracking-widest text-stone-900 uppercase">{strategy}</h4>
+    <p class="text-sm text-stone-600 italic">
       {alreadySetup ? 'Permanent Collection' : 'Available for Setup'}
     </p>
   </div>

@@ -48,7 +48,7 @@
         aria-label="user logout"
         class="group flex cursor-pointer items-center gap-2 border-none bg-transparent p-2 transition-transform active:scale-95">
         <span
-          class="text-[10px] uppercase tracking-widest text-stone-400 group-hover:text-stone-900">
+          class="text-[10px] tracking-widest text-stone-400 uppercase group-hover:text-stone-900">
           Logout
         </span>
         <svg
@@ -67,7 +67,7 @@
     <div class="flex items-center gap-4" data-testid="login-button">
       <a
         href={resolve('/login')}
-        class="text-xs font-bold uppercase tracking-[0.2em] text-stone-500 no-underline transition-colors hover:text-stone-900">
+        class="text-xs font-bold tracking-[0.2em] text-stone-500 uppercase no-underline transition-colors hover:text-stone-900">
         Login
       </a>
     </div>

@@ -1,10 +1,10 @@
 <script lang="ts">
-  import imageAuthUrl from '$lib/auth.jpg'
-  import imageNotificationUrl from '$lib/notification.jpg'
-  import imageBillingUrl from '$lib/billing.jpg'
-  import imageClientUrl from '$lib/client.jpg'
-  import imageSymphonyUrl from '$lib/symphony.jpg'
-  import imageMonetizationUrl from '$lib/monetization.png'
+  import imageAuthUrl from '#lib/auth.jpg'
+  import imageNotificationUrl from '#lib/notification.jpg'
+  import imageBillingUrl from '#lib/billing.jpg'
+  import imageClientUrl from '#lib/client.jpg'
+  import imageSymphonyUrl from '#lib/symphony.jpg'
+  import imageMonetizationUrl from '#lib/monetization.png'
 
   type Exhibits = {
     name: string
@@ -54,8 +54,8 @@
 
 <div class="min-h-screen bg-stone-50 font-serif text-stone-900">
   <header class="border-b border-stone-300 px-8 py-20 text-center">
-    <h1 class="mb-4 text-5xl uppercase tracking-tight">Auth+ Gallery</h1>
-    <p class="mx-auto max-w-2xl italic text-stone-600">
+    <h1 class="mb-4 text-5xl tracking-tight uppercase">Auth+ Gallery</h1>
+    <p class="mx-auto max-w-2xl text-stone-600 italic">
       A curated collection of modern infrastructure and secure systems architecture.
     </p>
   </header>
@@ -71,7 +71,7 @@
 
   <section class="bg-stone-200 py-24">
     <div class="mx-auto max-w-7xl px-8">
-      <h3 class="mb-12 text-center text-sm uppercase tracking-[0.2em] text-stone-500">
+      <h3 class="mb-12 text-center text-sm tracking-[0.2em] text-stone-500 uppercase">
         Permanent Collection: Services
       </h3>
 
@@ -92,7 +92,7 @@
               </div>
             </div>
             <div class="mt-2 border-l-2 border-stone-400 pl-4 transition-colors duration-300">
-              <h4 class="text-xl font-bold uppercase tracking-widest text-stone-900">
+              <h4 class="text-xl font-bold tracking-widest text-stone-900 uppercase">
                 {exhibit.name}
               </h4>
               <ul class="mt-2 flex flex-wrap gap-2 text-sm text-stone-600">
@@ -143,7 +143,7 @@
   <footer class="bg-stone-900 px-8 py-20 text-center text-stone-400">
     <div class="mx-auto max-w-2xl">
       <h2 class="mb-4 text-xl text-white">About the Architect</h2>
-      <p class="text-sm italic leading-relaxed">
+      <p class="text-sm leading-relaxed italic">
         This ongoing project showcases technical expertise across multiple programming languages and
         tools, simulating a real-world startup environment.
       </p>
