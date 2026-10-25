@@ -43,6 +43,9 @@ jobs:
         run: npm ci
       - name: Execute test
         run: npm run test:unit
+        env:
+          PUBLIC_AUTH_URL: "http://localhost:5000"
+          PUBLIC_BILLING_URL: "http://localhost:5002"
       - name: SonarCloud Scan
         uses: SonarSource/sonarqube-scan-action@v6
         env:
