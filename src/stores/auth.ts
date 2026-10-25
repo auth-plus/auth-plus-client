@@ -1,6 +1,6 @@
 import { writable } from 'svelte/store'
 import type { Strategy } from '../routes/mfa/mfa'
-import { PUBLIC_AUTH_URL } from '$env/static/public'
+import { PUBLIC_AUTH_URL } from '$app/env/public'
 
 export interface User {
   email: string

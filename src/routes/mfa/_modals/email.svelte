@@ -36,13 +36,13 @@
   </div>
 
   <div class="flex flex-col">
-    <span class="mb-1 text-sm font-black uppercase tracking-widest text-stone-900">
+    <span class="mb-1 text-sm font-black tracking-widest text-stone-900 uppercase">
       Email Dispatch
     </span>
     <p
-      class="text-xs italic leading-relaxed text-stone-500 transition-colors group-hover:text-stone-700">
+      class="text-xs leading-relaxed text-stone-500 italic transition-colors group-hover:text-stone-700">
       {#if user?.email}
-        Dispatch to <span class="font-mono font-bold not-italic text-stone-900">{user?.email}</span>
+        Dispatch to <span class="font-mono font-bold text-stone-900 not-italic">{user?.email}</span>
       {:else}
         No contact registry identified.
       {/if}

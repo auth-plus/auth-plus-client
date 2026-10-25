@@ -18,12 +18,12 @@
   <div class="w-full max-w-md border border-stone-300 bg-white p-10 shadow-2xl">
     <form onsubmit={submitCode} class="flex flex-col gap-8">
       <div class="text-center">
-        <h2 class="text-2xl uppercase tracking-tight text-stone-900">Enter Code</h2>
-        <p class="mt-2 italic text-stone-600">Verification sent to your device</p>
+        <h2 class="text-2xl tracking-tight text-stone-900 uppercase">Enter Code</h2>
+        <p class="mt-2 text-stone-600 italic">Verification sent to your device</p>
       </div>
 
       <div class="flex flex-col items-center">
-        <label for="login-code" class="mb-4 text-xs uppercase tracking-widest text-stone-500"
+        <label for="login-code" class="mb-4 text-xs tracking-widest text-stone-500 uppercase"
           >Verification Code</label>
         <input
           id="login-code"
@@ -36,13 +36,13 @@
       <div class="space-y-4">
         <button
           type="submit"
-          class="w-full bg-stone-900 py-4 font-bold uppercase tracking-[0.2em] text-white transition-all hover:bg-stone-800">
+          class="w-full bg-stone-900 py-4 font-bold tracking-[0.2em] text-white uppercase transition-all hover:bg-stone-800">
           Verify & Sign In
         </button>
 
         <button
           type="button"
-          class="w-full text-sm uppercase tracking-widest text-stone-400 transition-colors hover:text-stone-900">
+          class="w-full text-sm tracking-widest text-stone-400 uppercase transition-colors hover:text-stone-900">
           Resend Code
         </button>
       </div>

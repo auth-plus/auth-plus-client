@@ -1,4 +1,4 @@
-import { PUBLIC_AUTH_URL } from '$env/static/public'
+import { PUBLIC_AUTH_URL } from '$app/env/public'
 
 export enum Strategy {
   PHONE = 'PHONE',

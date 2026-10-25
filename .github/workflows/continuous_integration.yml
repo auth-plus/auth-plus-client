@@ -43,6 +43,9 @@ jobs:
         run: npm ci
       - name: Execute test
         run: npm run test:unit
+        env:
+          PUBLIC_AUTH_URL: http://authentication.auth-plus.app
+          PUBLIC_BILLING_URL: http://billing.auth-plus.app
       - name: SonarCloud Scan
         uses: SonarSource/sonarqube-scan-action@v6
         env:
@@ -69,6 +72,7 @@ jobs:
         run: npm run build:check
         env:
           PUBLIC_AUTH_URL: http://authentication.auth-plus.app
+          PUBLIC_BILLING_URL: http://billing.auth-plus.app
 
   Lint:
     runs-on: ubuntu-latest

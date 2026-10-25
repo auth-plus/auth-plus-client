@@ -22,14 +22,14 @@
   <div class="w-full max-w-md border border-stone-300 bg-white p-10 shadow-2xl">
     <form onsubmit={submitChoose} class="flex flex-col gap-8">
       <div class="text-center">
-        <h2 class="text-2xl uppercase tracking-tight text-stone-900">Security Verification</h2>
-        <p class="mt-2 italic text-stone-600">Select your preferred method</p>
+        <h2 class="text-2xl tracking-tight text-stone-900 uppercase">Security Verification</h2>
+        <p class="mt-2 text-stone-600 italic">Select your preferred method</p>
       </div>
 
       <div class="bg-stone-100 p-6">
         <label
           for="login-strategy"
-          class="mb-3 block text-xs uppercase tracking-widest text-stone-500"
+          class="mb-3 block text-xs tracking-widest text-stone-500 uppercase"
           >Authentication Method</label>
         <select
           id="login-strategy"
@@ -45,7 +45,7 @@
       <button
         type="submit"
         disabled={!strategyOption}
-        class="w-full bg-stone-900 py-4 font-bold uppercase tracking-[0.2em] text-white transition-all hover:bg-stone-800 disabled:bg-stone-300">
+        class="w-full bg-stone-900 py-4 font-bold tracking-[0.2em] text-white uppercase transition-all hover:bg-stone-800 disabled:bg-stone-300">
         Continue
       </button>
     </form>

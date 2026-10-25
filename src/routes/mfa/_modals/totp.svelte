@@ -47,16 +47,16 @@
         class="block h-40 w-40 grayscale transition-all duration-700 hover:grayscale-0" />
     {:else}
       <div class="flex h-40 w-40 animate-pulse items-center justify-center bg-stone-100">
-        <span class="text-[10px] uppercase tracking-widest text-stone-400">Generating...</span>
+        <span class="text-[10px] tracking-widest text-stone-400 uppercase">Generating...</span>
       </div>
     {/if}
   </div>
 
   <div class="px-4 text-center">
-    <h3 class="mb-2 text-xs font-black uppercase tracking-[0.2em] text-stone-900">
+    <h3 class="mb-2 text-xs font-black tracking-[0.2em] text-stone-900 uppercase">
       Authenticator Link
     </h3>
-    <p class="mx-auto max-w-[240px] text-[11px] italic leading-relaxed text-stone-500">
+    <p class="mx-auto max-w-[240px] text-[11px] leading-relaxed text-stone-500 italic">
       Scan the TOTP code with your application and provide the 6-digit signature below.
     </p>
   </div>

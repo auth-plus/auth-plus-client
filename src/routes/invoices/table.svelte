@@ -17,10 +17,10 @@
   <div class="overflow-x-auto">
     <table class="w-full text-left font-serif">
       <thead>
-        <tr class="border-b-2 border-stone-800 uppercase tracking-[0.2em] text-stone-500">
-          <th class="pb-4 pt-2 text-sm font-bold">ID</th>
-          <th class="pb-4 pt-2 text-sm font-bold">User Identifier</th>
-          <th class="pb-4 pt-2 text-sm font-bold">Status</th>
+        <tr class="border-b-2 border-stone-800 tracking-[0.2em] text-stone-500 uppercase">
+          <th class="pt-2 pb-4 text-sm font-bold">ID</th>
+          <th class="pt-2 pb-4 text-sm font-bold">User Identifier</th>
+          <th class="pt-2 pb-4 text-sm font-bold">Status</th>
         </tr>
       </thead>
       <tbody class="divide-y divide-stone-100">
@@ -28,7 +28,7 @@
           <td class="py-6 font-mono text-xs text-stone-400"
             >824ebdd6-7ee9-46b7-b3f8-1ca41a39fd55</td>
           <td class="py-6 text-stone-600">a77aa649-5cdc-4d74-a695-6d2917c32619</td>
-          <td class="py-6 italic text-stone-500 underline underline-offset-4">pending</td>
+          <td class="py-6 text-stone-500 italic underline underline-offset-4">pending</td>
         </tr>
 
         {#each list as usr (usr.id)}
@@ -37,7 +37,7 @@
             <td class="py-6 text-stone-600">{usr.user_id}</td>
             <td class="py-6">
               <span
-                class="border-l-2 border-stone-400 pl-3 text-xs uppercase italic tracking-widest text-stone-800">
+                class="border-l-2 border-stone-400 pl-3 text-xs tracking-widest text-stone-800 uppercase italic">
                 {usr.status}
               </span>
             </td>
