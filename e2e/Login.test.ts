@@ -34,9 +34,9 @@ test.describe('Login Flow', () => {
     await page.click('button[type="submit"]')
 
     // Verify redirection and session storage
+    await expect(page).toHaveURL('/')
     const token = await page.evaluate(() => sessionStorage.getItem('token'))
     expect(token).toBe('mock-session-token')
-    await expect(page).toHaveURL('/')
   })
 
   test('login with MFA triggers the MFA Selection view', async ({ page }) => {

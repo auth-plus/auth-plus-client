@@ -10,4 +10,3 @@ export const variables = defineEnvVars({
     static: true
   }
 })
-
