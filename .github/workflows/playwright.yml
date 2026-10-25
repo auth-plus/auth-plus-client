@@ -21,6 +21,7 @@ jobs:
         run: npx playwright test
         env:
           PUBLIC_AUTH_URL: http://authentication.auth-plus.app
+          PUBLIC_BILLING_URL: http://billing.auth-plus.app
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
         with:
