@@ -16,10 +16,7 @@ results-e2e.xml
 Thumbs.db
 
 # Env
-.env
-.env.*
-!.env.example
-!.env.test
+.env.keys
 
 # Vite
 vite.config.js.timestamp-*
